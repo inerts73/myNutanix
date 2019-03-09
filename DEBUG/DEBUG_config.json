@@ -1,0 +1,129 @@
+{
+  "global_config": {
+    "expected_fatals": [
+      {
+        "pattern": "",
+        "target": "/home/nutanix/data/logs/alert_manager.out*"
+      },
+      {
+        "pattern": "",
+        "target": "/home/nutanix/data/logs/arithmos.out*"
+      }
+    ],
+    "check_cluster_status": false,
+    "enable_cluster_init": false,
+    "ncc_log_collection_args": {
+      "component_list": [
+        "cerebro",
+        "stargate",
+        "cassandra",
+        "curator",
+        "pithos",
+        "uhura",
+        "hyperint",
+        "prism",
+        "acropolis",
+        "zookeeper"
+      ]
+    },
+    "resource_spec": [
+      {
+        "cluster_min_nodes": 1,
+        "must_run_on_hypervisors": [
+          "ahv"
+        ]
+      }
+    ],
+    "setup_timeout": 5400,
+    "test_timeout": 29400,
+    "ncc_log_collection_timeout": 7200
+  },
+  "test_config": {
+    "dr.dr_cbt_io_integrity.test_cbt_io_integrity.CbtIOIntegrityTest": {
+      "test_args": {
+        "integrity_runner_inputs": {
+          "block_size": 4096,
+          "enable_WAL": true,
+          "hung_op_threshold_secs": 300,
+          "leveldb_paranoid_checks": false,
+          "max_random_op_size": 32768,
+          "max_seq_op_size": 1048576,
+          "max_write_throughput_kb": 1024,
+          "min_num_outstanding_ops": 10,
+          "min_random_op_size": 4096,
+          "min_seq_op_size": 16384,
+          "num_workers": 1,
+          "o_direct": true,
+          "percent_read_io": 40,
+          "percent_seq_io": 30,
+          "region_size": 1073741824,
+          "region_timeout_secs": 0,
+          "timeout_secs": 2400, ##### 14400
+          "zipf_exponent": 0.0
+        },
+        "clean_debug_data": true,
+        "ctr_name": "cbt_io_ctr",
+        "enable_binary_logging": true,
+        "long_running": true,
+        "parallel_on_clusters": true,
+        "pd_name": "cbt_io_pd",
+        "recreate_cluster": true,
+        "setup_nas_archival": true,
+        "use_alt_nas_path": true,
+        "uvm_spec": {
+          "num_uvms_per_node": 1, ##### 2
+          "image_name": "Centos64UVM",
+          "memory": 8192,
+          "name_prefix": "cbt_io_uvm",
+          "num_vdisks": 1, ###### 6
+          "vcpus": 4,
+          "vdisk_size": 10737418240
+        }
+      }
+    },
+    "dr.dr_cbt_io_integrity.test_cbt_io_integrity.CbtIOIntegrityTest.test_incremental_snapshots": {
+      "test_args": {
+        "snapshot_cbt_loop_interval": 1800,
+        "max_snapshot_depth": 3
+      }
+    },
+    "dr.dr_cbt_io_integrity.test_cbt_io_integrity.CbtIOIntegrityTest.test_cbt_error_injection": {
+      "test_args": {
+        "snapshot_cbt_loop_interval": 150, ##### 1800
+        "max_snapshot_depth": 3,
+        "error_injection": {
+          "component_kill_freq": 300,
+          "component_kill_list": [
+            "stargate",
+            "cerebro"
+          ]
+        }
+      },
+      "resource_spec": [
+        {
+          "cluster_min_nodes": 4,
+          "must_run_on_hypervisors": [
+            "ahv"
+          ]
+        }
+      ],
+      "expected_cores": {
+        "alert_manager": null,
+        "arithmos": null,
+        "cassandra_monitor": null,
+        "cassandra_monit": null,
+        "cerebro": null,
+        "chronos_node_ma": null,
+        "chronos_node_main": null,
+        "curator": null,
+        "gdb": null,
+        "java": null,
+        "pithos": null,
+        "prism_monitor": null,
+        "python": null,
+        "stargate": null,
+        "stats_aggregator": null
+      }
+    }
+  }
+}
