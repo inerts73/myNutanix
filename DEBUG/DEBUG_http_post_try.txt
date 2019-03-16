@@ -174,25 +174,23 @@
     # }
     # DATA = json.dumps(DATA)
 
-    # DEBUG_ResourcesVm__0_0 on AdamHsu_PC_Epsilon (10.40.184.147) 3-nodes
-    # Top level => 13d2024f-6ba8-4d55-9738-71a12e7d53e7
-    # VM level => 4190cf6c-3808-4818-9c7d-03055bbe3135
-    # URL = 'https://10.40.184.147:9440/api/nutanix/v3/recovery_points/13d2024f-6ba8-4d55-9738-71a12e7d53e7/restore'
+    # DEBUG_ResourcesVm__0_0 on AdamHsu_PC_Eta (10.40.184.60) 3-nodes
+    # URL = 'https://10.40.184.60:9440/api/nutanix/v3/recovery_points/4cef6bd4-3134-4cf7-ba80-8ff1bf12b191/restore'
     # METHOD = 'post'
     # DATA = {
     #   "vm_list": [
     #     {
     #       "vm_recovery_point_reference": {
     #         "kind": "vm_recovery_point",
-    #         "uuid": "4190cf6c-3808-4818-9c7d-03055bbe3135"
+    #         "uuid": "4dc1fac4-fbfd-46f8-bbd3-c395a81fefcf"
     #       },
     #       "vm_spec": {
     #         "name": "R_DEBUG_ADAM_VM"
     #       },
     #       "metadata": {
     #         "categories_mapping": {
-    #           "MartialArt": ["Judo"] #Category not existing on PC
-    #           #"AccessType": ["Internet"] #Category existing on PC
+    #           #"MartialArt": ["Judo"] #Category not existing on PC
+    #           "AccessType": ["Internet"] #Category existing on PC
     #         }
     #       }
     #     }
