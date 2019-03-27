@@ -59,77 +59,6 @@
 
 
     ########## restore
-    # Joice's PC => 10.45.233.51 1-node
-    # Joice subnet vlan_override_777 uuid => 0a79cf54-1842-42ee-9733-c1598368d238
-    # Nutanx mac => "mac_address": "9A:1A:24:90:80:54", "50:6B:8D:d5:7e:8d"
-    # Random mac address => "mac_address": "D3:AC:11:32:A3:53",
-    # Restore a RP on PC (categories must already exist in PC) [url => top level RP id][vm_recovery_point... => vm_level_RP_id]
-    # ADAM_ResourcesVm__0_0 on Joice's PC => the following works on 1-node PC/PE
-    # Top level => fdce2427-7b80-4a91-91a0-158e06a23d27
-    # VM level => 4db8fc16-bae8-471e-bc7e-1b24c0e457f6
-    # URL = 'https://10.45.233.51:9440/api/nutanix/v3/recovery_points/fdce2427-7b80-4a91-91a0-158e06a23d27/restore'
-    # METHOD = 'post'
-    # DATA = {
-    #   "vm_list": [
-    #     {
-    #       "vm_recovery_point_reference": {
-    #         "kind": "vm_recovery_point",
-    #         "uuid": "4db8fc16-bae8-471e-bc7e-1b24c0e457f6"
-    #       },
-    #       "vm_spec": {
-    #         "name": "R_DEBUG_ADAM_VM",
-    #         "resources": {
-    #           "nic_list": [
-    #             {
-    #               "nic_type": "NORMAL_NIC",
-    #               "uuid": "12345678-9abc-def0-1234-56789abcdef0",
-    #               "ip_endpoint_list": [
-    #                 {
-    #                   "type": "ASSIGNED"
-    #                 }
-    #               ],
-    #               "vlan_mode": "ACCESS",
-    #               "mac_address": "50:6B:8D:d5:7e:8d",
-    #               "subnet_reference": {
-    #                 "kind": "subnet",
-    #                 "name": "vlan_override_777",
-    #                 "uuid": "0a79cf54-1842-42ee-9733-c1598368d238"
-    #               },
-    #               "is_connected": True,
-    #               "trunked_vlan_list": []
-    #             }
-    #           ]
-    #         }
-    #       },
-    #       "metadata": {
-    #         "categories_mapping": {
-    #             "TestSQL":  ["Nutest"]
-    #         }
-    #       }
-    #     }
-    #   ]
-    # }
-    # DATA = json.dumps(DATA)
-
-    # DEBUG_ResourcesVm__0_0 on AdamHsu_PC_Zeta (10.40.216.169) 1-node
-    # Top level => 88c15c93-f269-4e3f-bd19-6ef111a41497
-    # VM level => 877bd5af-5792-4498-840a-fea991a5af5b
-    # URL = 'https://10.40.216.169:9440/api/nutanix/v3/recovery_points/88c15c93-f269-4e3f-bd19-6ef111a41497/restore'
-    # METHOD = 'post'
-    # DATA = {
-    #   "vm_list": [{
-    #     "vm_recovery_point_reference": {
-    #       "kind": "vm_recovery_point",
-    #       "uuid": "877bd5af-5792-4498-840a-fea991a5af5b"
-    #     },
-    #     "vm_spec": {
-    #       "name": "R_DEBUG_ADAM_VM"
-    #     }
-    #
-    #   }]
-    # }
-    # DATA = json.dumps(DATA)
-
     # ==========================================================================
     # DEBUG_ResourcesVm__0_0 on AdamHsu_PC_Epsilon (10.40.184.147) 3-nodes
     # Top level => 13d2024f-6ba8-4d55-9738-71a12e7d53e7
@@ -191,6 +120,8 @@
     #         "categories_mapping": {
     #           #"MartialArt": ["Judo"] #Category not existing on PC
     #           "AccessType": ["Internet"] #Category existing on PC
+    #           "AppTier": ["Default"],
+    #           "Environment": ["Dev", "Production"]
     #         }
     #       }
     #     }
@@ -255,3 +186,11 @@
     # METHOD = 'delete'
     # DATA = {}
     # DATA = json.dumps(DATA)
+
+    ################################################
+    Reference:
+    #"50:6B:8D:d5:7e:8d"
+    #"50:6b:8d:be:a9:68"
+
+    Source PC: 10.40.216.115 (auto_AdamHsu_PC_OneL) VM: DEBUG_RESTORE
+    6bc5d236-2aa2-498c-8563-31f43f799285 / 3dd7fd52-d695-4423-8113-444ff805d16e
