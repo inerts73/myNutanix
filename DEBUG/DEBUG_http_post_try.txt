@@ -59,10 +59,7 @@
 
 
     ########## restore
-    # ==========================================================================
-    # DEBUG_ResourcesVm__0_0 on AdamHsu_PC_Epsilon (10.40.184.147) 3-nodes
-    # Top level => 13d2024f-6ba8-4d55-9738-71a12e7d53e7
-    # VM level => 4190cf6c-3808-4818-9c7d-03055bbe3135
+    # With RESOURCES
     # URL = 'https://10.40.184.147:9440/api/nutanix/v3/recovery_points/13d2024f-6ba8-4d55-9738-71a12e7d53e7/restore'
     # METHOD = 'post'
     # DATA = {
@@ -103,7 +100,7 @@
     # }
     # DATA = json.dumps(DATA)
 
-    # DEBUG_ResourcesVm__0_0 on AdamHsu_PC_Eta (10.40.184.60) 3-nodes
+    # With CATEGORIES_MAPPING
     # URL = 'https://10.40.184.60:9440/api/nutanix/v3/recovery_points/4cef6bd4-3134-4cf7-ba80-8ff1bf12b191/restore'
     # METHOD = 'post'
     # DATA = {
@@ -128,13 +125,14 @@
     #   ]
     # }
     # DATA = json.dumps(DATA)
-    # ==========================================================================
+
 
     ########## subnets
     # URL = 'https://10.45.139.32:9440/api/nutanix/v3/subnets/550c924d-b8bd-4491-a958-a98cf2d33e65'
     # METHOD = 'delete'
     # DATA = {}
     # DATA = json.dumps(DATA)
+
 
     ########## task
     # Get a task on PC
@@ -187,8 +185,8 @@
     # DATA = {}
     # DATA = json.dumps(DATA)
 
-    ################################################
-    Reference:
+
+    ########## misc
     #"50:6B:8D:d5:7e:8d"
     #"50:6b:8d:be:a9:68"
 
