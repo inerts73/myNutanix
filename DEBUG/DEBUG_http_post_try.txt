@@ -64,6 +64,21 @@
     # DATA = {"kind": "recovery_plan_job", "length": 500, "offset": 0}
     # DATA = json.dumps(DATA)
 
+    ########## replicate
+    # URL = 'https://10.40.216.115:9440/api/nutanix/v3/recovery_points/01cc10a9-d6ec-42e4-826b-7d4f6fca79fa/replicate'
+    # METHOD = 'post'
+    # DATA = {
+    #   "source_availability_zone_reference": {
+    #     "kind": "availability_zone",
+    #     "name": "Local AZ",
+    #     "uuid": "c82446a8-8d05-4530-8b2f-075b48a5658c"
+    #   },
+    #   "target_availability_zone_reference": {
+    #     "kind": "availability_zone",
+    #     "name": "PC_10.40.184.38",
+    #     "uuid": "f69161f0-3f4f-4c7a-a9f5-156b20aa8453"
+    #   }
+    # }
 
     ########## restore
     # With RESOURCES
@@ -194,11 +209,18 @@
 
 
     ########## misc
-    #"50:6B:8D:d5:7e:8d"
-    #"50:6b:8d:be:a9:68"
+    "50:6B:8D:d5:7e:8d"
+    "50:6b:8d:be:a9:68"
 
     Source PC: 10.40.216.115 (auto_AdamHsu_PC_OneL) VM: DEBUG_RESTORE
     6bc5d236-2aa2-498c-8563-31f43f799285 / 3dd7fd52-d695-4423-8113-444ff805d16e
 
-    Source PC: 10.40.216.115 (auto_AdamHsu_PC_OneL) VM: DEBUG_REPLICATE
-    01cc10a9-d6ec-42e4-826b-7d4f6fca79fa
+    Source PC: 10.40.216.115 (auto_AdamHsu_PC_OneL)
+    VM: DEBUG_REPLICATE
+        rp_uuid: 01cc10a9-d6ec-42e4-826b-7d4f6fca79fa
+        source_az_uuid: c82446a8-8d05-4530-8b2f-075b48a5658c
+        target_cluster_uuid: 00058503-7aa2-5965-0000-000000011600
+        remote_az_uuid: f69161f0-3f4f-4c7a-a9f5-156b20aa8453
+    VM: ResourcesVm_0_0
+        rp_uuid: 45326e52-b374-4bd3-a240-7c60509e5270
+

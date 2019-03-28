@@ -31,13 +31,18 @@ def az_list():
   return URL, METHOD, DATA
 
 def replicate_from_srouce_to_remote():
-  URL = 'https://10.40.216.115:9440/api/nutanix/v3/recovery_points/01cc10a9-d6ec-42e4-826b-7d4f6fca79fa/replicate'
+  URL = 'https://10.40.216.115:9440/api/nutanix/v3/recovery_points/45326e52-b374-4bd3-a240-7c60509e5270/replicate'
   METHOD = 'post'
   DATA = {
     "source_availability_zone_reference": {
       "kind": "availability_zone",
       "name": "Local AZ",
       "uuid": "c82446a8-8d05-4530-8b2f-075b48a5658c"
+    },
+    "target_cluster_reference": {
+      "kind": "cluster",
+      "name": "auto_AdamHsu_Cluster_ThreeA",
+      "uuid": "00058503-7aa2-5965-0000-000000011600"
     },
     "target_availability_zone_reference": {
       "kind": "availability_zone",
@@ -105,8 +110,8 @@ def vm_info():
     return URL, METHOD, DATA
 
 if __name__ == '__main__':
-  output_to_json_file(*az_list())
-  #output_to_json_file(*replicate_from_srouce_to_remote())
+  #output_to_json_file(*az_list())
+  output_to_json_file(*replicate_from_srouce_to_remote())
   #output_to_json_file(*restore_on_pc())
   #output_to_json_file(*vm_info())
 
