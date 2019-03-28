@@ -1,3 +1,94 @@
 {
-  "task_uuid": "5a4d0cb9-f40a-436c-909b-e9216f4ed935"
+  "entities": [
+    {
+      "status": {
+        "name": "Local AZ", 
+        "state": "COMPLETE", 
+        "uuid": "c82446a8-8d05-4530-8b2f-075b48a5658c", 
+        "resources": {
+          "management_url": "e2b5e30e-c0ea-4b45-97be-862606d1d6ce", 
+          "region": null, 
+          "management_plane_type": "Local", 
+          "credentials": null, 
+          "display_name": "PC_10.40.216.115"
+        }, 
+        "execution_context": {
+          "task_uuids": [
+            "437c29f3-0784-4134-a400-3f8ae7e2d8eb"
+          ]
+        }
+      }, 
+      "spec": {
+        "name": "Local AZ", 
+        "resources": {
+          "management_url": "e2b5e30e-c0ea-4b45-97be-862606d1d6ce", 
+          "management_plane_type": "Local"
+        }
+      }, 
+      "metadata": {
+        "last_update_time": "2019-03-27T00:52:44Z", 
+        "kind": "availability_zone", 
+        "uuid": "c82446a8-8d05-4530-8b2f-075b48a5658c", 
+        "spec_version": 0, 
+        "creation_time": "2019-03-27T00:52:43Z", 
+        "categories_mapping": {}, 
+        "categories": {}
+      }
+    }, 
+    {
+      "status": {
+        "state": "COMPLETE", 
+        "uuid": "f69161f0-3f4f-4c7a-a9f5-156b20aa8453", 
+        "resources": {
+          "management_url": "93eace65-6ddc-4975-95a4-b205bbb4cd62", 
+          "region": "OnPrem", 
+          "management_plane_type": "PC", 
+          "credentials": {
+            "pc": {
+              "remote_connection_reference": {
+                "kind": "remote_connection", 
+                "name": "ONPREM_CLOUD:10.40.184.38", 
+                "uuid": "74056f77-3878-49c9-a1b4-1cb55ae3700f"
+              }
+            }
+          }, 
+          "display_name": "PC_10.40.184.38"
+        }, 
+        "name": "PC_10.40.184.38"
+      }, 
+      "spec": {
+        "name": "PC_10.40.184.38", 
+        "resources": {
+          "credentials": {
+            "pc": {
+              "remote_connection_reference": {
+                "kind": "remote_connection", 
+                "uuid": "74056f77-3878-49c9-a1b4-1cb55ae3700f"
+              }
+            }
+          }, 
+          "region": "OnPrem", 
+          "management_url": "93eace65-6ddc-4975-95a4-b205bbb4cd62", 
+          "management_plane_type": "PC", 
+          "display_name": "PC_10.40.184.38"
+        }
+      }, 
+      "metadata": {
+        "last_update_time": "2019-03-27T17:57:47Z", 
+        "kind": "availability_zone", 
+        "uuid": "f69161f0-3f4f-4c7a-a9f5-156b20aa8453", 
+        "spec_version": 0, 
+        "creation_time": "2019-03-27T17:57:25Z", 
+        "categories_mapping": {}, 
+        "categories": {}
+      }
+    }
+  ], 
+  "api_version": "3.1", 
+  "metadata": {
+    "total_matches": 2, 
+    "kind": "availability_zone", 
+    "length": 2, 
+    "offset": 0
+  }
 }

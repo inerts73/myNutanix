@@ -1,3 +1,10 @@
+    ########## availability_zone
+    # List all availability_zone on PC
+    # URL = 'https://10.40.216.115:9440/api/nutanix/v3/availability_zones/list'
+    # METHOD = 'post'
+    # DATA = {"kind": "availability_zone", "length": 500, "offset": 0}
+    # DATA = json.dumps(DATA)
+
     ########## categories
     # List all categories on PC
     # URL = 'https://10.40.184.30:9440/api/nutanix/v3/categories/list'
@@ -192,3 +199,6 @@
 
     Source PC: 10.40.216.115 (auto_AdamHsu_PC_OneL) VM: DEBUG_RESTORE
     6bc5d236-2aa2-498c-8563-31f43f799285 / 3dd7fd52-d695-4423-8113-444ff805d16e
+
+    Source PC: 10.40.216.115 (auto_AdamHsu_PC_OneL) VM: DEBUG_REPLICATE
+    01cc10a9-d6ec-42e4-826b-7d4f6fca79fa
