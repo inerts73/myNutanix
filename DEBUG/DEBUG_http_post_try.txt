@@ -212,15 +212,27 @@
     "50:6B:8D:d5:7e:8d"
     "50:6b:8d:be:a9:68"
 
-    Source PC: 10.40.216.115 (auto_AdamHsu_PC_OneL) VM: DEBUG_RESTORE
-    6bc5d236-2aa2-498c-8563-31f43f799285 / 3dd7fd52-d695-4423-8113-444ff805d16e
-
     Source PC: 10.40.216.115 (auto_AdamHsu_PC_OneL)
-    VM: DEBUG_REPLICATE
+    subnet_uuid: 95fe2357-02a1-4e6f-b6f5-d15134af348d
+    VM: DEBUG_RESTORE
+        6bc5d236-2aa2-498c-8563-31f43f799285 / 3dd7fd52-d695-4423-8113-444ff805d16e
+
+    auto_AdamHsu_PC_OneL: 10.40.216.115
+    VM: DEBUG_REPLICATE (uuid=85cf7004-9581-4b44-b240-2b12d8e36ffd)
         rp_uuid: 01cc10a9-d6ec-42e4-826b-7d4f6fca79fa
         source_az_uuid: c82446a8-8d05-4530-8b2f-075b48a5658c
         target_cluster_uuid: 00058503-7aa2-5965-0000-000000011600
         remote_az_uuid: f69161f0-3f4f-4c7a-a9f5-156b20aa8453
     VM: ResourcesVm_0_0
         rp_uuid: 45326e52-b374-4bd3-a240-7c60509e5270
+
+    auto_AdamHsu_PC_ThreeA: 10.40.184.38
+    subnet_uuid: f844308a-7c46-459c-8494-8008dca8a3a1
+
+    auto_AdamHsu_PC_OneO: 10.40.218.135
+    subnet_uuid: f838fa76-c408-4965-b50f-6d5400ebb706
+    VM: TEST_1_DISK (uuid: d143c1a6-fdde-4b06-8b64-53c1a4ea41e9)
+        a4c44232-d1b4-4881-8a68-20740d189d88 / 84c87d05-c614-4988-a756-0e77673decd5
+    VM: TEST_2_DISKS (uuid: 14c9134a-6cc7-4b04-a14c-ff8199879ec7)
+        c4ba67fc-64c8-41a0-8959-bc3952ae557f / 4e485287-d58d-47f7-b7a2-9ca808596592
 
