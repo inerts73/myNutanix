@@ -236,3 +236,10 @@
     VM: TEST_2_DISKS (uuid: 14c9134a-6cc7-4b04-a14c-ff8199879ec7)
         c4ba67fc-64c8-41a0-8959-bc3952ae557f / 4e485287-d58d-47f7-b7a2-9ca808596592
 
+    Source PC: 10.40.216.115 (auto_AdamHsu_PC_OneL) VM: DEBUG_RESTORE
+    6bc5d236-2aa2-498c-8563-31f43f799285 / 3dd7fd52-d695-4423-8113-444ff805d16e
+
+    Source PC: 10.40.216.115 (auto_AdamHsu_PC_OneL) VM: DEBUG_REPLICATE
+    rp_uuid: 01cc10a9-d6ec-42e4-826b-7d4f6fca79fa
+    source_az_uuid: c82446a8-8d05-4530-8b2f-075b48a5658c
+    remote_az_uuid: f69161f0-3f4f-4c7a-a9f5-156b20aa8453
