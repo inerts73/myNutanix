@@ -1,245 +1,236 @@
-    ########## availability_zone
-    # List all availability_zone on PC
-    # URL = 'https://10.40.216.115:9440/api/nutanix/v3/availability_zones/list'
-    # METHOD = 'post'
-    # DATA = {"kind": "availability_zone", "length": 500, "offset": 0}
-    # DATA = json.dumps(DATA)
+######### availability_zone
+#List all availability_zone on PC
+URL = 'https://10.40.216.115:9440/api/nutanix/v3/availability_zones/list'
+METHOD = 'post'
+DATA = {"kind": "availability_zone", "length": 500, "offset": 0}
+DATA = json.dumps(DATA)
 
-    ########## categories
-    # List all categories on PC
-    # URL = 'https://10.40.184.30:9440/api/nutanix/v3/categories/list'
-    # METHOD = 'post'
-    # DATA = {"kind": "category", "length": 500, "offset": 0}
-    # DATA = json.dumps(DATA)
+######### categories
+#List all categories on PC
+URL = 'https://10.40.184.30:9440/api/nutanix/v3/categories/list'
+METHOD = 'post'
+DATA = {"kind": "category", "length": 500, "offset": 0}
+DATA = json.dumps(DATA)
 
-    # List all the value of a specific category key on PC
-    # URL = 'https://10.40.184.30:9440/api/nutanix/v3/categories/TestSQL/list'
-    # METHOD = 'post'
-    # DATA = {"kind": "category", "length": 500, "offset": 0}
-    # DATA = json.dumps(DATA)
+#List all the value of a specific category key on PC
+URL = 'https://10.40.184.30:9440/api/nutanix/v3/categories/TestSQL/list'
+METHOD = 'post'
+DATA = {"kind": "category", "length": 500, "offset": 0}
+DATA = json.dumps(DATA)
 
-    # # Get a category key on PC
-    # URL = 'https://10.40.184.30:9440/api/nutanix/v3/categories/AppType'
-    # METHOD = 'get'
-    # DATA = {}
-    # DATA = json.dumps(DATA)
+# Get a category key on PC
+URL = 'https://10.40.184.30:9440/api/nutanix/v3/categories/AppType'
+METHOD = 'get'
+DATA = {}
+DATA = json.dumps(DATA)
 
-    # Get a category value on PC
-    # URL = 'https://10.40.184.30:9440/api/nutanix/v3/categories/AppType/Apache_Spark'
-    # METHOD = 'get'
-    # DATA = {}
-    # DATA = json.dumps(DATA)
+#Get a category value on PC
+URL = 'https://10.40.184.30:9440/api/nutanix/v3/categories/AppType/Apache_Spark'
+METHOD = 'get'
+DATA = {}
+DATA = json.dumps(DATA)
 
-    # Create/Update a category value on PC
-    # URL = 'https://10.40.184.30:9440/api/nutanix/v3/categories/TestSQL/AdamHsuValue01'
-    # METHOD = 'put'
-    # DATA = {"value": "AdamHsuValue01"}
-    # DATA = json.dumps(DATA)
-
-
-    ########## hosts
-    # List hosts on PC
-    # URL = 'https://10.40.184.30:9440/api/nutanix/v3/hosts/list'
-    # METHOD = 'post'
-    # DATA = {"kind": "host", "length": 500, "offset": 0}
-    # DATA = json.dumps(DATA)
+#Create/Update a category value on PC
+URL = 'https://10.40.184.30:9440/api/nutanix/v3/categories/TestSQL/AdamHsuValue01'
+METHOD = 'put'
+DATA = {"value": "AdamHsuValue01"}
+DATA = json.dumps(DATA)
 
 
-    ########## PE
-    # List all hosts on PE (more details)
-    # URL = 'https://10.45.130.207:9440/PrismGateway/services/rest/v2.0/hosts'
-    # METHOD = 'get'
-    # DATA = {}
+######### hosts
+#List hosts on PC
+URL = 'https://10.40.184.30:9440/api/nutanix/v3/hosts/list'
+METHOD = 'post'
+DATA = {"kind": "host", "length": 500, "offset": 0}
+DATA = json.dumps(DATA)
 
-    # List all VMs on PE (less details)
-    # URL = 'https://10.45.130.207:9440/PrismGateway/services/rest/v2.0/vms/'
-    # METHOD = 'get'
-    # DATA = {}
+######### PE
+#List all hosts on PE (more details)
+URL = 'https://10.45.130.207:9440/PrismGateway/services/rest/v2.0/hosts'
+METHOD = 'get'
+DATA = {}
 
-
-    ########## recovery_plan_jobs
-    # List all recovery_plan_jobs on PC
-    # URL = 'https://10.40.184.30:9440/api/nutanix/v3/recovery_plan_jobs/list'
-    # METHOD = 'post'
-    # DATA = {"kind": "recovery_plan_job", "length": 500, "offset": 0}
-    # DATA = json.dumps(DATA)
-
-    ########## replicate
-    # URL = 'https://10.40.216.115:9440/api/nutanix/v3/recovery_points/01cc10a9-d6ec-42e4-826b-7d4f6fca79fa/replicate'
-    # METHOD = 'post'
-    # DATA = {
-    #   "source_availability_zone_reference": {
-    #     "kind": "availability_zone",
-    #     "name": "Local AZ",
-    #     "uuid": "c82446a8-8d05-4530-8b2f-075b48a5658c"
-    #   },
-    #   "target_availability_zone_reference": {
-    #     "kind": "availability_zone",
-    #     "name": "PC_10.40.184.38",
-    #     "uuid": "f69161f0-3f4f-4c7a-a9f5-156b20aa8453"
-    #   }
-    # }
-
-    ########## restore
-    # With RESOURCES
-    # URL = 'https://10.40.184.147:9440/api/nutanix/v3/recovery_points/13d2024f-6ba8-4d55-9738-71a12e7d53e7/restore'
-    # METHOD = 'post'
-    # DATA = {
-    #   "vm_list": [
-    #     {
-    #       "vm_recovery_point_reference": {
-    #         "kind": "vm_recovery_point",
-    #         "uuid": "4190cf6c-3808-4818-9c7d-03055bbe3135"
-    #       },
-    #       "vm_spec": {
-    #         "name": "R_DEBUG_ADAM_VM",
-    #         "resources": {
-    #           "nic_list": [
-    #             {
-    #               "nic_type": "NORMAL_NIC",
-    #               "uuid": "12345678-9abc-def0-1234-56789abcdef0",
-    #               "ip_endpoint_list": [
-    #                 {
-    #                   "type": "ASSIGNED"
-    #                 }
-    #               ],
-    #               "vlan_mode": "ACCESS",
-    #               "mac_address": "D3:AC:11:32:A3:53", #Invalid mac address
-    #               #"mac_address": "50:6B:8D:d5:7e:8d", #Valid mac address
-    #               "subnet_reference": {
-    #                 "kind": "subnet",
-    #                 "name": "vlan_override_777",
-    #                 "uuid": "2d4045ae-660b-4925-b5fc-4219e622c99c"
-    #               },
-    #               "is_connected": True,
-    #               "trunked_vlan_list": []
-    #             }
-    #           ]
-    #         }
-    #       }
-    #     }
-    #   ]
-    # }
-    # DATA = json.dumps(DATA)
-
-    # With CATEGORIES_MAPPING
-    # URL = 'https://10.40.184.60:9440/api/nutanix/v3/recovery_points/4cef6bd4-3134-4cf7-ba80-8ff1bf12b191/restore'
-    # METHOD = 'post'
-    # DATA = {
-    #   "vm_list": [
-    #     {
-    #       "vm_recovery_point_reference": {
-    #         "kind": "vm_recovery_point",
-    #         "uuid": "4dc1fac4-fbfd-46f8-bbd3-c395a81fefcf"
-    #       },
-    #       "vm_spec": {
-    #         "name": "R_DEBUG_ADAM_VM"
-    #       },
-    #       "metadata": {
-    #         "categories_mapping": {
-    #           #"MartialArt": ["Judo"] #Category not existing on PC
-    #           "AccessType": ["Internet"] #Category existing on PC
-    #           "AppTier": ["Default"],
-    #           "Environment": ["Dev", "Production"]
-    #         }
-    #       }
-    #     }
-    #   ]
-    # }
-    # DATA = json.dumps(DATA)
+#List all VMs on PE (less details)
+URL = 'https://10.45.130.207:9440/PrismGateway/services/rest/v2.0/vms/'
+METHOD = 'get'
+DATA = {}
 
 
-    ########## subnets
-    # URL = 'https://10.45.139.32:9440/api/nutanix/v3/subnets/550c924d-b8bd-4491-a958-a98cf2d33e65'
-    # METHOD = 'delete'
-    # DATA = {}
-    # DATA = json.dumps(DATA)
+######### recovery_plan_jobs
+#List all recovery_plan_jobs on PC
+URL = 'https://10.40.184.30:9440/api/nutanix/v3/recovery_plan_jobs/list'
+METHOD = 'post'
+DATA = {"kind": "recovery_plan_job", "length": 500, "offset": 0}
+DATA = json.dumps(DATA)
+
+######### replicate
+#URL = 'https://10.40.216.115:9440/api/nutanix/v3/recovery_points/01cc10a9-d6ec-42e4-826b-7d4f6fca79fa/replicate'
+METHOD = 'post'
+DATA = {
+  "source_availability_zone_reference": {
+    "kind": "availability_zone",
+    "name": "Local AZ",
+    "uuid": "c82446a8-8d05-4530-8b2f-075b48a5658c"
+  },
+  "target_availability_zone_reference": {
+    "kind": "availability_zone",
+    "name": "PC_10.40.184.38",
+    "uuid": "f69161f0-3f4f-4c7a-a9f5-156b20aa8453"
+  }
+}
+
+######### restore
+#With RESOURCES
+URL = 'https://10.40.184.147:9440/api/nutanix/v3/recovery_points/13d2024f-6ba8-4d55-9738-71a12e7d53e7/restore'
+METHOD = 'post'
+DATA = {
+  "vm_list": [
+    {
+      "vm_recovery_point_reference": {
+        "kind": "vm_recovery_point",
+        "uuid": "4190cf6c-3808-4818-9c7d-03055bbe3135"
+      },
+      "vm_spec": {
+        "name": "R_DEBUG_ADAM_VM",
+        "resources": {
+          "gpu_list": [
+            {
+              "vendor": "NVIDIA",
+              "mode": "VIRTUAL",
+              "device_id": 12
+            }
+          ],
+          "nic_list": [
+            {
+              "nic_type": "NORMAL_NIC",
+              "uuid": "12345678-9abc-def0-1234-56789abcdef0",
+              "ip_endpoint_list": [
+                {
+                  "type": "ASSIGNED"
+                }
+              ],
+              "vlan_mode": "ACCESS",
+              "mac_address": "D3:AC:11:32:A3:53", #Invalid mac address
+              #"mac_address": "50:6B:8D:d5:7e:8d", #Valid mac address
+              "subnet_reference": {
+                "kind": "subnet",
+                "name": "vlan_override_777",
+                "uuid": "2d4045ae-660b-4925-b5fc-4219e622c99c"
+              },
+              "is_connected": True,
+              "trunked_vlan_list": []
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+DATA = json.dumps(DATA)
+
+#With CATEGORIES_MAPPING
+URL = 'https://10.40.184.60:9440/api/nutanix/v3/recovery_points/4cef6bd4-3134-4cf7-ba80-8ff1bf12b191/restore'
+METHOD = 'post'
+DATA = {
+  "vm_list": [
+    {
+      "vm_recovery_point_reference": {
+        "kind": "vm_recovery_point",
+        "uuid": "4dc1fac4-fbfd-46f8-bbd3-c395a81fefcf"
+      },
+      "vm_spec": {
+        "name": "R_DEBUG_ADAM_VM"
+      },
+      "metadata": {
+        "categories_mapping": {
+          #"MartialArt": ["Judo"] #Category not existing on PC
+          "AccessType": ["Internet"] #Category existing on PC
+          "AppTier": ["Default"],
+          "Environment": ["Dev", "Production"]
+        }
+      }
+    }
+  ]
+}
+DATA = json.dumps(DATA)
 
 
-    ########## task
-    # Get a task on PC
-    # URL = 'https://10.40.184.30:9440/api/nutanix/v3/tasks/4bdab2e8-3608-44b8-bbe4-a52f81bc2788'
-    # METHOD = 'get'
-    # DATA = {}
+######### subnets
+URL = 'https://10.45.139.32:9440/api/nutanix/v3/subnets/550c924d-b8bd-4491-a958-a98cf2d33e65'
+METHOD = 'delete'
+DATA = {}
+DATA = json.dumps(DATA)
 
 
-    ########## vms
-    # List all vm's on PC
-    # URL = 'https://10.40.184.147:9440/api/nutanix/v3/vms/list'
-    # METHOD = 'post'
-    # DATA = {"kind": "vm", "length": 500, "offset": 0}
-    # DATA = json.dumps(DATA)
-
-    # Create a vm => Working on 3-node PC/PE
-    # URL = 'https://10.40.184.147:9440/api/nutanix/v3/vms'
-    # METHOD = 'post'
-    # DATA = {
-    #   "metadata": {
-    #     "kind": "vm"
-    #   },
-    #   "spec": {
-    #     "name": "CCC_MAC_ADDRESS_VM",
-    #     "resources": {
-    #       "nic_list": [
-    #         {
-    #           "mac_address": "9A:1A:24:90:80:54",
-    #           "subnet_reference": {
-    #             "kind": "subnet",
-    #             "name": "vlan_override_777",
-    #             "uuid": "2d4045ae-660b-4925-b5fc-4219e622c99c"
-    #           }
-    #         }
-    #       ]
-    #     }
-    #   }
-    # }
-    # DATA = json.dumps(DATA)
-
-    # Get a vm on PC
-    # URL = 'https://10.40.184.30:9440/api/nutanix/v3/vms/dbb98361-271f-5dd8-ae97-167a1beea0fb'
-    # METHOD = 'get'
-    # DATA = {}
-    # DATA = json.dumps(DATA)
-
-    # Delete a vm on PC
-    # URL = 'https://10.40.184.30:9440/api/nutanix/v3/vms/191f0539-2c89-54ff-ac81-a1a79bc61677'
-    # METHOD = 'delete'
-    # DATA = {}
-    # DATA = json.dumps(DATA)
+######### task
+#Get a task on PC
+URL = 'https://10.40.184.30:9440/api/nutanix/v3/tasks/4bdab2e8-3608-44b8-bbe4-a52f81bc2788'
+METHOD = 'get'
+DATA = {}
 
 
-    ########## misc
-    "50:6B:8D:d5:7e:8d"
-    "50:6b:8d:be:a9:68"
+######### vms
+#List all vm's on PC
+URL = 'https://10.40.184.147:9440/api/nutanix/v3/vms/list'
+METHOD = 'post'
+DATA = {"kind": "vm", "length": 500, "offset": 0}
+DATA = json.dumps(DATA)
 
-    Source PC: 10.40.216.115 (auto_AdamHsu_PC_OneL)
-    subnet_uuid: 95fe2357-02a1-4e6f-b6f5-d15134af348d
-    VM: DEBUG_RESTORE
-        6bc5d236-2aa2-498c-8563-31f43f799285 / 3dd7fd52-d695-4423-8113-444ff805d16e
+#Create a vm => Working on 3-node PC/PE
+URL = 'https://10.40.184.147:9440/api/nutanix/v3/vms'
+METHOD = 'post'
+DATA = {
+  "metadata": {
+    "kind": "vm"
+  },
+  "spec": {
+    "name": "CCC_MAC_ADDRESS_VM",
+    "resources": {
+      "nic_list": [
+        {
+          "mac_address": "9A:1A:24:90:80:54",
+          "subnet_reference": {
+            "kind": "subnet",
+            "name": "vlan_override_777",
+            "uuid": "2d4045ae-660b-4925-b5fc-4219e622c99c"
+          }
+        }
+      ]
+    }
+  }
+}
+DATA = json.dumps(DATA)
 
-    auto_AdamHsu_PC_OneL: 10.40.216.115
-    VM: DEBUG_REPLICATE (uuid=85cf7004-9581-4b44-b240-2b12d8e36ffd)
-        rp_uuid: 01cc10a9-d6ec-42e4-826b-7d4f6fca79fa
-        source_az_uuid: c82446a8-8d05-4530-8b2f-075b48a5658c
-        target_cluster_uuid: 00058503-7aa2-5965-0000-000000011600
-        remote_az_uuid: f69161f0-3f4f-4c7a-a9f5-156b20aa8453
-    VM: ResourcesVm_0_0
-        rp_uuid: 45326e52-b374-4bd3-a240-7c60509e5270
+#Get a vm on PC
+URL = 'https://10.40.184.30:9440/api/nutanix/v3/vms/dbb98361-271f-5dd8-ae97-167a1beea0fb'
+METHOD = 'get'
+DATA = {}
+DATA = json.dumps(DATA)
 
-    auto_AdamHsu_PC_ThreeA: 10.40.184.38
-    subnet_uuid: f844308a-7c46-459c-8494-8008dca8a3a1
+#Delete a vm on PC
+URL = 'https://10.40.184.30:9440/api/nutanix/v3/vms/191f0539-2c89-54ff-ac81-a1a79bc61677'
+METHOD = 'delete'
+DATA = {}
+DATA = json.dumps(DATA)
 
-    auto_AdamHsu_PC_OneO: 10.40.218.135
-    subnet_uuid: f838fa76-c408-4965-b50f-6d5400ebb706
-    VM: TEST_1_DISK (uuid: d143c1a6-fdde-4b06-8b64-53c1a4ea41e9)
-        a4c44232-d1b4-4881-8a68-20740d189d88 / 84c87d05-c614-4988-a756-0e77673decd5
-    VM: TEST_2_DISKS (uuid: 14c9134a-6cc7-4b04-a14c-ff8199879ec7)
-        c4ba67fc-64c8-41a0-8959-bc3952ae557f / 4e485287-d58d-47f7-b7a2-9ca808596592
 
-    Source PC: 10.40.216.115 (auto_AdamHsu_PC_OneL) VM: DEBUG_RESTORE
-    6bc5d236-2aa2-498c-8563-31f43f799285 / 3dd7fd52-d695-4423-8113-444ff805d16e
+########## misc
+"50:6B:8D:d5:7e:8d"
+"50:6b:8d:be:a9:68"
 
-    Source PC: 10.40.216.115 (auto_AdamHsu_PC_OneL) VM: DEBUG_REPLICATE
+auto_AdamHsu_PC_OneL: 10.40.216.115
+VM: DEBUG_REPLICATE (uuid=85cf7004-9581-4b44-b240-2b12d8e36ffd)
     rp_uuid: 01cc10a9-d6ec-42e4-826b-7d4f6fca79fa
     source_az_uuid: c82446a8-8d05-4530-8b2f-075b48a5658c
+    target_cluster_uuid: 00058503-7aa2-5965-0000-000000011600
     remote_az_uuid: f69161f0-3f4f-4c7a-a9f5-156b20aa8453
+
+PC: 10.40.217.29 (auto_AdamHsu_PC_OneR)
+subnet_uuid: d73cc07f-c937-4546-8683-957d75bf044b
+VM: TEST_01 (uuid: b2b06f2f-ff39-4622-a3fe-78d57c77adfc)
+    b93bd453-4207-42fa-b682-f98ea4ee4fdc / a15e8fd5-4d00-4ef9-aa87-4a870cb05784
+
+PC: 10.40.184.5 (auto_AdamHsu_PC_ThreeB)
+subnet_uuid: 8a5e300e-131a-4f4c-97c1-314fbcf64cbb
+VM: TEST_02 (uuid: 1e7b33f3-c93d-4a78-864c-735e22158b35)
+    324f613b-fb4f-402e-a6f6-b3a0551964ae / aac92ebd-2d68-4ef6-b18e-ca4a37fcaf71

@@ -55,18 +55,25 @@ def replicate_from_srouce_to_remote():
   return URL, METHOD, DATA
 
 def restore_on_pc_full():
-  URL = 'https://10.40.184.38:9440/api/nutanix/v3/recovery_points/3951e2bc-ce14-45e1-9595-5e7ea97db71b/restore'
+  URL = 'https://10.40.217.29:9440/api/nutanix/v3/recovery_points/b93bd453-4207-42fa-b682-f98ea4ee4fdc/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "c908e845-ecd5-4e13-a17f-9d06c2da81a9"
+          "uuid": "a15e8fd5-4d00-4ef9-aa87-4a870cb05784"
         },
         "vm_spec": {
-          "name": "R_DEBUG_RESTORE_01",
+          "name": "RESTORE_01",
           "resources": {
+            "gpu_list": [
+              {
+                "vendor": "NVIDIA",
+                "mode": "VIRTUAL",
+                "device_id": 12
+              }
+            ],
             "nic_list": [
               {
                 "nic_type": "NORMAL_NIC",
@@ -77,11 +84,11 @@ def restore_on_pc_full():
                   }
                 ],
                 "vlan_mode": "ACCESS",
-                "mac_address": "50:6B:8D:d5:7e:8d",
+                "mac_address": "50:6b:8d:be:a9:68",
                 "subnet_reference": {
                   "kind": "subnet",
                   "name": "vlan_override_777",
-                  "uuid": "f844308a-7c46-459c-8494-8008dca8a3a1"
+                  "uuid": "d73cc07f-c937-4546-8683-957d75bf044b"
                 },
                 "is_connected": True,
                 "trunked_vlan_list": []
@@ -102,17 +109,17 @@ def restore_on_pc_full():
   return URL, METHOD, DATA
 
 def restore_on_pc_mini():
-  URL = 'https://10.40.218.135:9440/api/nutanix/v3/recovery_points/c4ba67fc-64c8-41a0-8959-bc3952ae557f/restore'
+  URL = 'https://10.40.184.5:9440/api/nutanix/v3/recovery_points/324f613b-fb4f-402e-a6f6-b3a0551964ae/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "4e485287-d58d-47f7-b7a2-9ca808596592"
+          "uuid": "aac92ebd-2d68-4ef6-b18e-ca4a37fcaf71"
         },
         "vm_spec": {
-          "name": "RESTORE_2_DISKS"
+          "name": "RESTORE_02"
         }
       }
     ]
@@ -122,7 +129,7 @@ def restore_on_pc_mini():
   return URL, METHOD, DATA
 
 def vm_info():
-    URL = 'https://10.40.184.38:9440/api/nutanix/v3/vms/d144125a-68c3-4249-8226-5f0d2fa84bd2'
+    URL = 'https://10.40.217.29:9440/api/nutanix/v3/vms/2fd4a9e1-044f-511d-b4fd-1646bcd8e228'
     METHOD = 'get'
     DATA = {}
     DATA = json.dumps(DATA)
@@ -133,7 +140,12 @@ if __name__ == '__main__':
   #output_to_json_file(*az_list())
   #output_to_json_file(*replicate_from_srouce_to_remote())
   #output_to_json_file(*restore_on_pc_full())
-  output_to_json_file(*restore_on_pc_mini())
-  #output_to_json_file(*vm_info())
+  #output_to_json_file(*restore_on_pc_mini())
+  output_to_json_file(*vm_info())
+
+
+
+
+
 
 
