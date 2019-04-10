@@ -23,7 +23,7 @@ def send_req(url, method, params={}, data={},
 ##################################################
 
 def az_list():
-  URL = 'https://10.40.216.115:9440/api/nutanix/v3/availability_zones/list'
+  URL = 'https://10.40.217.150:9440/api/nutanix/v3/availability_zones/list'
   METHOD = 'post'
   DATA = {"kind": "availability_zone", "length": 500, "offset": 0}
   DATA = json.dumps(DATA)
@@ -31,23 +31,23 @@ def az_list():
   return URL, METHOD, DATA
 
 def replicate_from_srouce_to_remote():
-  URL = 'https://10.40.216.115:9440/api/nutanix/v3/recovery_points/01cc10a9-d6ec-42e4-826b-7d4f6fca79fa/replicate'
+  URL = 'https://10.40.184.185:9440/api/nutanix/v3/recovery_points/2136f407-3e8e-4734-aea5-f697471faea5/replicate'
   METHOD = 'post'
   DATA = {
     "source_availability_zone_reference": {
       "kind": "availability_zone",
       "name": "Local AZ",
-      "uuid": "c82446a8-8d05-4530-8b2f-075b48a5658c"
+      "uuid": "4eafa1b8-f3e8-4684-85bc-4b24a8acec73"
     },
     "target_cluster_reference": {
       "kind": "cluster",
-      "name": "auto_AdamHsu_Cluster_ThreeA",
-      "uuid": "00058503-7aa2-5965-0000-000000011600"
+      "name": "auto_AdamHsu_Cluster_OneZ",
+      "uuid": "db6a708a-0f52-4cd1-9179-b0e7116804dd"
     },
     "target_availability_zone_reference": {
       "kind": "availability_zone",
-      "name": "PC_10.40.184.38",
-      "uuid": "f69161f0-3f4f-4c7a-a9f5-156b20aa8453"
+      "name": "PC_10.40.184.183",
+      "uuid": "16637130-cd49-40c7-ac07-72a4300f8445"
     }
   }
   DATA = json.dumps(DATA)
@@ -55,52 +55,61 @@ def replicate_from_srouce_to_remote():
   return URL, METHOD, DATA
 
 def restore_on_pc_full():
-  URL = 'https://10.40.217.29:9440/api/nutanix/v3/recovery_points/b93bd453-4207-42fa-b682-f98ea4ee4fdc/restore'
+  URL = 'https://10.40.216.227:9440/api/nutanix/v3/recovery_points/51e56c0f-ee3e-4902-b557-95116b669851/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "a15e8fd5-4d00-4ef9-aa87-4a870cb05784"
+          "uuid": "90916111-08e9-4fc2-ada8-2ff9845a85dc"
         },
         "vm_spec": {
-          "name": "RESTORE_01",
+          "name": "RESTORE_1W_FULL",
           "resources": {
-            "gpu_list": [
-              {
-                "vendor": "NVIDIA",
-                "mode": "VIRTUAL",
-                "device_id": 12
-              }
-            ],
             "nic_list": [
               {
-                "nic_type": "NORMAL_NIC",
-                "uuid": "12345678-9abc-def0-1234-56789abcdef0",
                 "ip_endpoint_list": [
                   {
                     "type": "ASSIGNED"
                   }
                 ],
-                "vlan_mode": "ACCESS",
-                "mac_address": "50:6b:8d:be:a9:68",
+                "nic_type": "DIRECT_NIC",
                 "subnet_reference": {
                   "kind": "subnet",
-                  "name": "vlan_override_777",
-                  "uuid": "d73cc07f-c937-4546-8683-957d75bf044b"
+                  "uuid": "58318e27-40cb-453e-8a77-beac024b361f"
                 },
                 "is_connected": True,
-                "trunked_vlan_list": []
+                "mac_address": "50:6b:8d:79:c1:f9"
+              },
+              {
+                "ip_endpoint_list": [
+                  {
+                    "type": "ASSIGNED"
+                  }
+                ],
+                "nic_type": "DIRECT_NIC",
+                "subnet_reference": {
+                  "kind": "subnet",
+                  "uuid": "58318e27-40cb-453e-8a77-beac024b361f"
+                },
+                "is_connected": True,
+                "mac_address": "50:6b:8d:4e:11:95"
               }
             ]
           }
-        },
-        "metadata": {
-          "categories_mapping": {
-            "Environment": ["Dev"]  # Category existing on PC
-          }
         }
+        # "metadata": {
+        #   "categories_mapping": {
+        #     "Environment": [
+        #       "Staging",
+        #       "Testing"
+        #     ],
+        #     "AccessType": [
+        #       "Internet"
+        #     ]
+        #   }
+        # }
       }
     ]
   }
@@ -109,17 +118,17 @@ def restore_on_pc_full():
   return URL, METHOD, DATA
 
 def restore_on_pc_mini():
-  URL = 'https://10.40.184.5:9440/api/nutanix/v3/recovery_points/324f613b-fb4f-402e-a6f6-b3a0551964ae/restore'
+  URL = 'https://10.40.184.185:9440/api/nutanix/v3/recovery_points/2136f407-3e8e-4734-aea5-f697471faea5/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "aac92ebd-2d68-4ef6-b18e-ca4a37fcaf71"
+          "uuid": "edce7d6d-c2b5-4701-93b6-8ca0b5712acf"
         },
         "vm_spec": {
-          "name": "RESTORE_02"
+          "name": "RESTORE_1AA_MINI"
         }
       }
     ]
@@ -129,7 +138,7 @@ def restore_on_pc_mini():
   return URL, METHOD, DATA
 
 def vm_info():
-    URL = 'https://10.40.217.29:9440/api/nutanix/v3/vms/2fd4a9e1-044f-511d-b4fd-1646bcd8e228'
+    URL = 'https://10.40.217.29:9440/api/nutanix/v3/vms/657b7410-25b0-5ab3-a2df-383ad009ac1c'
     METHOD = 'get'
     DATA = {}
     DATA = json.dumps(DATA)
@@ -138,10 +147,10 @@ def vm_info():
 
 if __name__ == '__main__':
   #output_to_json_file(*az_list())
-  #output_to_json_file(*replicate_from_srouce_to_remote())
+  output_to_json_file(*replicate_from_srouce_to_remote())
   #output_to_json_file(*restore_on_pc_full())
   #output_to_json_file(*restore_on_pc_mini())
-  output_to_json_file(*vm_info())
+  #output_to_json_file(*vm_info())
 
 
 
