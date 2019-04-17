@@ -223,29 +223,68 @@ DATA = json.dumps(DATA)
 "50:6B:8D:d5:7e:8d"
 "50:6b:8d:be:a9:68"
 ========================
-PC: 10.40.184.185 ==> PC: 10.40.184.183
-PE: auto_AdamHsu_Cluster_OneAA => auto_AdamHsu_Cluster_OneZ
-VM: TEST_1AA (uuid=2cb8a2df-a7c9-41d2-8d68-ab174970b697)
-    rp_uuid: 2136f407-3e8e-4734-aea5-f697471faea5
+PC: 10.40.217.14 ==> PC: 10.40.216.245
+PE: auto_AdamHsu_Cluster_OneAE => auto_AdamHsu_Cluster_OneAD
+VM: TEST_SAIKAT_0_0 (uuid=46c9d4d4-0080-4dc4-babc-a2c20e9d53c4)
+    rp_uuid: 1ee94f35-c628-4b65-b6a8-6d6a414ce8ac
 
-    "source_availability_zone_reference": {
-      "kind": "availability_zone",
-      "name": "Local AZ",
-      "uuid": "4eafa1b8-f3e8-4684-85bc-4b24a8acec73"
-    },
-    "target_cluster_reference": {
-      "kind": "cluster",
-      "name": "auto_AdamHsu_Cluster_OneZ",
-      "uuid": "db6a708a-0f52-4cd1-9179-b0e7116804dd"
-    },
-    "target_availability_zone_reference": {
-      "kind": "availability_zone",
-      "name": "PC_10.40.184.183",
-      "uuid": "16637130-cd49-40c7-ac07-72a4300f8445"
-    }
+  "source_availability_zone_reference": {
+    "kind": "availability_zone",
+    "name": "Local AZ",
+    "uuid": "d4e8a1c5-99e9-468f-9113-6169fa24e91e"
+  },
+  "target_cluster_reference": {
+    "kind": "cluster",
+    "name": "auto_AdamHsu_Cluster_OneAD",
+    "uuid": "192c78ee-2ec2-402b-b51b-789eb34fbe80"
+  },
+  "target_availability_zone_reference": {
+    "kind": "availability_zone",
+    "name": "PC_10.40.216.245",
+    "uuid": "e9e5359f-56a8-4ad2-a3d4-e90945fe88b8"
+  }
+
+
+Replicate twice 0% hang
 ========================
-PC: 10.40.184.185 PE: auto_AdamHsu_Cluster_OneAA
+PC: 10.40.217.14 PE: auto_AdamHsu_Cluster_OneAE
 subnet_uuid ():
-VM: TEST_1AA_01 (uuid: 2cb8a2df-a7c9-41d2-8d68-ab174970b697)
-    2136f407-3e8e-4734-aea5-f697471faea5 / edce7d6d-c2b5-4701-93b6-8ca0b5712acf
+VM: TEST_SAIKAT_0_0 (uuid=46c9d4d4-0080-4dc4-babc-a2c20e9d53c4)
+    1ee94f35-c628-4b65-b6a8-6d6a414ce8ac/ ???
 ========================
+PC: 10.40.216.245 PE: auto_AdamHsu_Cluster_OneAD
+subnet_uuid ():
+VM: ??? (uuid=46c9d4d4-0080-4dc4-babc-a2c20e9d53c4)
+    03ee16fa-03e6-494a-8419-6f2838889bdd / d2ef99c0-468b-4e8b-b026-c230b0543c8a
+
+
+ErrorCode:5 With vlog enabled
+========================
+PC: 10.40.217.14 PE: auto_AdamHsu_Cluster_OneAE
+subnet_uuid ():
+VM: TEST_SAIKAT_0_0 (uuid=46c9d4d4-0080-4dc4-babc-a2c20e9d53c4)
+    1ee94f35-c628-4b65-b6a8-6d6a414ce8ac/ ???
+========================
+PC: 10.40.216.245 PE: auto_AdamHsu_Cluster_OneAD
+subnet_uuid ():
+VM: ??? (uuid=46c9d4d4-0080-4dc4-babc-a2c20e9d53c4)
+    03ee16fa-03e6-494a-8419-6f2838889bdd / d2ef99c0-468b-4e8b-b026-c230b0543c8a
+
+ErrorCode:5 without vlog enabled
+========================
+PC: 10.40.217.14 PE: auto_AdamHsu_Cluster_OneAE
+subnet_uuid ():
+VM: TEST_1AE (uuid=47fb1d01-5671-49cc-b175-7b4b50c60125)
+    9639d9d8-8b1d-4b23-b73b-9c6a4198a7a5 / ???
+========================
+PC: 10.40.216.245 PE: auto_AdamHsu_Cluster_OneAD
+subnet_uuid ():
+VM: ??? (uuid: 47fb1d01-5671-49cc-b175-7b4b50c60125)
+    fdb3122b-7034-44d8-8a2e-5aa18e2609ce / b22670ce-68ea-446e-9f52-a0c4b5b2371e
+
+Study TASK
+========================
+PC: 10.40.184.59 PE: auto_AdamHsu_Cluster_OneAF
+subnet_uuid ():
+VM: TEST_1AF (uuid: 3131310f-7c24-43d3-96c6-a3b3d1a963c3)
+    3b510cf5-6ce7-446a-a873-6d1d41bd2837 / e04c81b7-1c82-4962-b690-8e10e2932bca

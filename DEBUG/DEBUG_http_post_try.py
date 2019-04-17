@@ -23,7 +23,7 @@ def send_req(url, method, params={}, data={},
 ##################################################
 
 def az_list():
-  URL = 'https://10.40.217.150:9440/api/nutanix/v3/availability_zones/list'
+  URL = 'https://10.40.217.14:9440/api/nutanix/v3/availability_zones/list'
   METHOD = 'post'
   DATA = {"kind": "availability_zone", "length": 500, "offset": 0}
   DATA = json.dumps(DATA)
@@ -31,23 +31,23 @@ def az_list():
   return URL, METHOD, DATA
 
 def replicate_from_srouce_to_remote():
-  URL = 'https://10.40.184.185:9440/api/nutanix/v3/recovery_points/2136f407-3e8e-4734-aea5-f697471faea5/replicate'
+  URL = 'https://10.40.217.14:9440/api/nutanix/v3/recovery_points/1ee94f35-c628-4b65-b6a8-6d6a414ce8ac/replicate'
   METHOD = 'post'
   DATA = {
     "source_availability_zone_reference": {
       "kind": "availability_zone",
       "name": "Local AZ",
-      "uuid": "4eafa1b8-f3e8-4684-85bc-4b24a8acec73"
+      "uuid": "d4e8a1c5-99e9-468f-9113-6169fa24e91e"
     },
     "target_cluster_reference": {
       "kind": "cluster",
-      "name": "auto_AdamHsu_Cluster_OneZ",
-      "uuid": "db6a708a-0f52-4cd1-9179-b0e7116804dd"
+      "name": "auto_AdamHsu_Cluster_OneAD",
+      "uuid": "192c78ee-2ec2-402b-b51b-789eb34fbe80"
     },
     "target_availability_zone_reference": {
       "kind": "availability_zone",
-      "name": "PC_10.40.184.183",
-      "uuid": "16637130-cd49-40c7-ac07-72a4300f8445"
+      "name": "PC_10.40.216.245",
+      "uuid": "e9e5359f-56a8-4ad2-a3d4-e90945fe88b8"
     }
   }
   DATA = json.dumps(DATA)
@@ -118,17 +118,17 @@ def restore_on_pc_full():
   return URL, METHOD, DATA
 
 def restore_on_pc_mini():
-  URL = 'https://10.40.184.185:9440/api/nutanix/v3/recovery_points/2136f407-3e8e-4734-aea5-f697471faea5/restore'
+  URL = 'https://10.40.184.59:9440/api/nutanix/v3/recovery_points/3b510cf5-6ce7-446a-a873-6d1d41bd2837/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "edce7d6d-c2b5-4701-93b6-8ca0b5712acf"
+          "uuid": "e04c81b7-1c82-4962-b690-8e10e2932bca"
         },
         "vm_spec": {
-          "name": "RESTORE_1AA_MINI"
+          "name": "RESTORE_1AF_MINI"
         }
       }
     ]
@@ -137,19 +137,28 @@ def restore_on_pc_mini():
 
   return URL, METHOD, DATA
 
-def vm_info():
-    URL = 'https://10.40.217.29:9440/api/nutanix/v3/vms/657b7410-25b0-5ab3-a2df-383ad009ac1c'
-    METHOD = 'get'
-    DATA = {}
-    DATA = json.dumps(DATA)
+def task_info():
+  URL = 'https://10.40.184.59:9440/api/nutanix/v3/tasks/273d7f9e-a94f-42f7-abc7-247d86f29a2b'
+  METHOD = 'get'
+  DATA = {}
+  DATA = json.dumps(DATA)
 
-    return URL, METHOD, DATA
+  return URL, METHOD, DATA
+
+def vm_info():
+  URL = 'https://10.40.184.59:9440/api/nutanix/v3/vms/79333bf6-1700-51f7-a8f3-6972695b91fc'
+  METHOD = 'get'
+  DATA = {}
+  DATA = json.dumps(DATA)
+
+  return URL, METHOD, DATA
 
 if __name__ == '__main__':
   #output_to_json_file(*az_list())
-  output_to_json_file(*replicate_from_srouce_to_remote())
+  #output_to_json_file(*replicate_from_srouce_to_remote())
   #output_to_json_file(*restore_on_pc_full())
   #output_to_json_file(*restore_on_pc_mini())
+  output_to_json_file(*task_info())
   #output_to_json_file(*vm_info())
 
 

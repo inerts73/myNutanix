@@ -1,3 +1,28 @@
 {
-  "task_uuid": "31f3366b-c1fd-4c17-8d64-c65a1b56ca61"
+  "status": "SUCCEEDED", 
+  "last_update_time": "2019-04-17T01:29:45Z", 
+  "logical_timestamp": 6, 
+  "entity_reference_list": [
+    {
+      "kind": "vm", 
+      "uuid": "79333bf6-1700-51f7-a8f3-6972695b91fc"
+    }
+  ], 
+  "start_time": "2019-04-17T01:29:37Z", 
+  "creation_time": "2019-04-17T01:29:37Z", 
+  "start_time_usecs": 1555464577224333, 
+  "percentage_complete": 100, 
+  "subtask_reference_list": [], 
+  "completion_time": "2019-04-17T01:29:45Z", 
+  "creation_time_usecs": 1555464577187913, 
+  "progress_message": "", 
+  "operation_type": "RestoreRecoveryPoint", 
+  "completion_time_usecs": 1555464585087686, 
+  "error_code": "0", 
+  "cluster_reference": {
+    "kind": "cluster", 
+    "uuid": "d7a995d6-24e6-436f-aea9-685ce8a4bde8"
+  }, 
+  "api_version": "3.1", 
+  "uuid": "273d7f9e-a94f-42f7-abc7-247d86f29a2b"
 }
