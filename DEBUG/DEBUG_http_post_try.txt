@@ -44,6 +44,26 @@ METHOD = 'post'
 DATA = {"kind": "host", "length": 500, "offset": 0}
 DATA = json.dumps(DATA)
 
+######### idempotence_identifiers
+#Create an new idempotence_identifier " (UUID4)"
+URL = 'https://10.40.184.59:9440/api/nutanix/v3/idempotence_identifiers'
+METHOD = 'post'
+DATA = {
+  "client_identifier": "string",
+  "count": 1,
+  "valid_duration_in_minutes": 527040
+}
+DATA = json.dumps(DATA)
+=> Typical response
+{
+  "client_identifier": "string",
+  "count": 1,
+  "expiration_time": "2020-04-17T20:01:56Z",
+  "uuid_list": [
+    "00e0aed1-6b21-457a-8f84-eb9ea9b43745"
+  ]
+}
+
 ######### PE
 #List all hosts on PE (more details)
 URL = 'https://10.45.130.207:9440/PrismGateway/services/rest/v2.0/hosts'
@@ -133,7 +153,8 @@ DATA = {
 }
 DATA = json.dumps(DATA)
 
-#With CATEGORIES_MAPPING
+#With CATEGORIES_MAPPING and UUID
+# UUID must be created via /idempotence_identifiers. Otherwise, remove UUID.
 URL = 'https://10.40.184.60:9440/api/nutanix/v3/recovery_points/4cef6bd4-3134-4cf7-ba80-8ff1bf12b191/restore'
 METHOD = 'post'
 DATA = {
@@ -149,10 +170,10 @@ DATA = {
       "metadata": {
         "categories_mapping": {
           #"MartialArt": ["Judo"] #Category not existing on PC
-          "AccessType": ["Internet"] #Category existing on PC
           "AppTier": ["Default"],
           "Environment": ["Dev", "Production"]
         }
+        "uuid": "00e0aed1-6b21-457a-8f84-eb9ea9b43745"
       }
     }
   ]
@@ -288,3 +309,7 @@ PC: 10.40.184.59 PE: auto_AdamHsu_Cluster_OneAF
 subnet_uuid ():
 VM: TEST_1AF (uuid: 3131310f-7c24-43d3-96c6-a3b3d1a963c3)
     3b510cf5-6ce7-446a-a873-6d1d41bd2837 / e04c81b7-1c82-4962-b690-8e10e2932bca
+
+Study restoring in parallel
+========================
+RESTORED_VM: sample vm_uuid: 79333bf6-1700-51f7-a8f3-6972695b91fc

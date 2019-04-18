@@ -30,6 +30,18 @@ def az_list():
 
   return URL, METHOD, DATA
 
+def idempotence_identifiers_create():
+  URL = 'https://10.40.184.59:9440/api/nutanix/v3/idempotence_identifiers'
+  METHOD = 'post'
+  DATA = {
+    "client_identifier": "string",
+    "count": 1,
+    "valid_duration_in_minutes": 527040
+  }
+  DATA = json.dumps(DATA)
+
+  return URL, METHOD, DATA
+
 def replicate_from_srouce_to_remote():
   URL = 'https://10.40.217.14:9440/api/nutanix/v3/recovery_points/1ee94f35-c628-4b65-b6a8-6d6a414ce8ac/replicate'
   METHOD = 'post'
@@ -105,9 +117,9 @@ def restore_on_pc_full():
         #       "Staging",
         #       "Testing"
         #     ],
-        #     "AccessType": [
-        #       "Internet"
-        #     ]
+        #     "AppTier": [
+        #       "Default"
+        #     ],
         #   }
         # }
       }
@@ -128,7 +140,19 @@ def restore_on_pc_mini():
           "uuid": "e04c81b7-1c82-4962-b690-8e10e2932bca"
         },
         "vm_spec": {
-          "name": "RESTORE_1AF_MINI"
+          "name": "NEW_RESTORE_1AF_MINI"
+        },
+        "metadata": {
+          "categories_mapping": {
+            "Environment": [
+              "Staging",
+              "Testing"
+            ],
+            "AppTier": [
+              "Default"
+            ],
+          },
+          "uuid": "00e0aed1-6b21-457a-8f84-eb9ea9b43745"
         }
       }
     ]
@@ -155,10 +179,11 @@ def vm_info():
 
 if __name__ == '__main__':
   #output_to_json_file(*az_list())
+  #output_to_json_file(*idempotence_identifiers_create())
   #output_to_json_file(*replicate_from_srouce_to_remote())
   #output_to_json_file(*restore_on_pc_full())
-  #output_to_json_file(*restore_on_pc_mini())
-  output_to_json_file(*task_info())
+  output_to_json_file(*restore_on_pc_mini())
+  #output_to_json_file(*task_info())
   #output_to_json_file(*vm_info())
 
 
