@@ -43,23 +43,23 @@ def idempotence_identifiers_create():
   return URL, METHOD, DATA
 
 def replicate_from_srouce_to_remote():
-  URL = 'https://10.40.217.14:9440/api/nutanix/v3/recovery_points/1ee94f35-c628-4b65-b6a8-6d6a414ce8ac/replicate'
+  URL = 'https://10.40.217.252:9440/api/nutanix/v3/recovery_points/61e431c6-9e94-438d-b591-ac518d2137c2/replicate'
   METHOD = 'post'
   DATA = {
     "source_availability_zone_reference": {
       "kind": "availability_zone",
       "name": "Local AZ",
-      "uuid": "d4e8a1c5-99e9-468f-9113-6169fa24e91e"
+      "uuid": "e85f4d6b-9776-4fd3-9c65-ba654d73d356"
     },
     "target_cluster_reference": {
       "kind": "cluster",
-      "name": "auto_AdamHsu_Cluster_OneAD",
-      "uuid": "192c78ee-2ec2-402b-b51b-789eb34fbe80"
+      "name": "auto_AdamHsu_Cluster_OneAM",
+      "uuid": "0e1ed090-72f0-4174-95e3-62ce9d674c2c"
     },
     "target_availability_zone_reference": {
       "kind": "availability_zone",
-      "name": "PC_10.40.216.245",
-      "uuid": "e9e5359f-56a8-4ad2-a3d4-e90945fe88b8"
+      "name": "PC_10.40.216.172",
+      "uuid": "e3c1ebd9-416a-421d-a1b3-372c00b93d47"
     }
   }
   DATA = json.dumps(DATA)
@@ -152,7 +152,7 @@ def restore_on_pc_mini():
               "Default"
             ],
           },
-          "uuid": "00e0aed1-6b21-457a-8f84-eb9ea9b43745"
+          "uuid": "fd53a29e-56fd-4149-b177-fb6493cb7bd0"
         }
       }
     ]
@@ -180,9 +180,9 @@ def vm_info():
 if __name__ == '__main__':
   #output_to_json_file(*az_list())
   #output_to_json_file(*idempotence_identifiers_create())
-  #output_to_json_file(*replicate_from_srouce_to_remote())
+  output_to_json_file(*replicate_from_srouce_to_remote())
   #output_to_json_file(*restore_on_pc_full())
-  output_to_json_file(*restore_on_pc_mini())
+  #output_to_json_file(*restore_on_pc_mini())
   #output_to_json_file(*task_info())
   #output_to_json_file(*vm_info())
 

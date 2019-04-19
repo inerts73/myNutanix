@@ -244,39 +244,39 @@ DATA = json.dumps(DATA)
 "50:6B:8D:d5:7e:8d"
 "50:6b:8d:be:a9:68"
 ========================
-PC: 10.40.217.14 ==> PC: 10.40.216.245
-PE: auto_AdamHsu_Cluster_OneAE => auto_AdamHsu_Cluster_OneAD
-VM: TEST_SAIKAT_0_0 (uuid=46c9d4d4-0080-4dc4-babc-a2c20e9d53c4)
-    rp_uuid: 1ee94f35-c628-4b65-b6a8-6d6a414ce8ac
+PC: 10.40.217.252 ==> PC: 10.40.216.172
+PE: auto_AdamHsu_Cluster_OneAN => auto_AdamHsu_Cluster_OneAM
+VM: TEST_1AN_0_0 (uuid=044d5b71-d643-4a75-91f7-6481f0cf3229)
+    rp_uuid: ???
 
   "source_availability_zone_reference": {
     "kind": "availability_zone",
     "name": "Local AZ",
-    "uuid": "d4e8a1c5-99e9-468f-9113-6169fa24e91e"
+    "uuid": "e85f4d6b-9776-4fd3-9c65-ba654d73d356"
   },
   "target_cluster_reference": {
     "kind": "cluster",
-    "name": "auto_AdamHsu_Cluster_OneAD",
-    "uuid": "192c78ee-2ec2-402b-b51b-789eb34fbe80"
+    "name": "auto_AdamHsu_Cluster_OneAM",
+    "uuid": "0e1ed090-72f0-4174-95e3-62ce9d674c2c"
   },
   "target_availability_zone_reference": {
     "kind": "availability_zone",
-    "name": "PC_10.40.216.245",
-    "uuid": "e9e5359f-56a8-4ad2-a3d4-e90945fe88b8"
+    "name": "PC_10.40.216.172",
+    "uuid": "e3c1ebd9-416a-421d-a1b3-372c00b93d47"
   }
 
 
 Replicate twice 0% hang
 ========================
-PC: 10.40.217.14 PE: auto_AdamHsu_Cluster_OneAE
+PC: 10.40.217.252 PE: auto_AdamHsu_Cluster_OneAN
 subnet_uuid ():
-VM: TEST_SAIKAT_0_0 (uuid=46c9d4d4-0080-4dc4-babc-a2c20e9d53c4)
-    1ee94f35-c628-4b65-b6a8-6d6a414ce8ac/ ???
+VM: TEST_1AN_0_0 (uuid=044d5b71-d643-4a75-91f7-6481f0cf3229)
+    61e431c6-9e94-438d-b591-ac518d2137c2 / ???
 ========================
-PC: 10.40.216.245 PE: auto_AdamHsu_Cluster_OneAD
+PC: 10.40.216.172 PE: auto_AdamHsu_Cluster_OneAM
 subnet_uuid ():
-VM: ??? (uuid=46c9d4d4-0080-4dc4-babc-a2c20e9d53c4)
-    03ee16fa-03e6-494a-8419-6f2838889bdd / d2ef99c0-468b-4e8b-b026-c230b0543c8a
+VM: ??? (uuid=044d5b71-d643-4a75-91f7-6481f0cf3229)
+    5934606d-e80f-498f-9ef8-12817330d763 / d028ffe0-8a75-4d03-8929-45227e955ded
 
 
 ErrorCode:5 With vlog enabled
