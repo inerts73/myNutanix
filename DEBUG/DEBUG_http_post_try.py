@@ -31,11 +31,11 @@ def az_list():
   return URL, METHOD, DATA
 
 def idempotence_identifiers_create():
-  URL = 'https://10.40.184.59:9440/api/nutanix/v3/idempotence_identifiers'
+  URL = 'https://10.40.216.172:9440/api/nutanix/v3/idempotence_identifiers'
   METHOD = 'post'
   DATA = {
     "client_identifier": "string",
-    "count": 1,
+    "count": 3,
     "valid_duration_in_minutes": 527040
   }
   DATA = json.dumps(DATA)
@@ -129,18 +129,18 @@ def restore_on_pc_full():
 
   return URL, METHOD, DATA
 
-def restore_on_pc_mini():
-  URL = 'https://10.40.184.59:9440/api/nutanix/v3/recovery_points/3b510cf5-6ce7-446a-a873-6d1d41bd2837/restore'
+def restore_on_pc_mini_source():
+  URL = 'https://10.40.184.8:9440/api/nutanix/v3/recovery_points/2f5ec6d7-636d-4fc2-936e-9dee0eb21862/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "e04c81b7-1c82-4962-b690-8e10e2932bca"
+          "uuid": "801624fc-dedd-4923-996e-336e3a5ac09a"
         },
         "vm_spec": {
-          "name": "NEW_RESTORE_1AF_MINI"
+          "name": "RESTORE_1AP_MINI_SOURCE"
         },
         "metadata": {
           "categories_mapping": {
@@ -150,15 +150,32 @@ def restore_on_pc_mini():
             ],
             "AppTier": [
               "Default"
-            ],
-          },
-          "uuid": "fd53a29e-56fd-4149-b177-fb6493cb7bd0"
+            ]
+          }
         }
       }
     ]
   }
   DATA = json.dumps(DATA)
+  return URL, METHOD, DATA
 
+def restore_on_pc_mini_remote():
+  URL = 'https://10.40.184.107:9440/api/nutanix/v3/recovery_points/562ba05e-5b66-4e00-a2ce-adf359e12b79/restore'
+  METHOD = 'post'
+  DATA = {
+    "vm_list": [
+      {
+        "vm_recovery_point_reference": {
+          "kind": "vm_recovery_point",
+          "uuid": "f8ee1887-7c3b-492c-a699-c38089735af4"
+        },
+        "vm_spec": {
+          "name": "RESTORE_1AO_MINI_REMOTE"
+        }
+      }
+    ]
+  }
+  DATA = json.dumps(DATA)
   return URL, METHOD, DATA
 
 def task_info():
@@ -180,9 +197,10 @@ def vm_info():
 if __name__ == '__main__':
   #output_to_json_file(*az_list())
   #output_to_json_file(*idempotence_identifiers_create())
-  output_to_json_file(*replicate_from_srouce_to_remote())
+  #output_to_json_file(*replicate_from_srouce_to_remote())
   #output_to_json_file(*restore_on_pc_full())
-  #output_to_json_file(*restore_on_pc_mini())
+  #output_to_json_file(*restore_on_pc_mini_source())
+  output_to_json_file(*restore_on_pc_mini_remote())
   #output_to_json_file(*task_info())
   #output_to_json_file(*vm_info())
 

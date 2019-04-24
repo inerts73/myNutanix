@@ -265,18 +265,23 @@ VM: TEST_1AN_0_0 (uuid=044d5b71-d643-4a75-91f7-6481f0cf3229)
     "uuid": "e3c1ebd9-416a-421d-a1b3-372c00b93d47"
   }
 
+Replicate successfully and restore remotely: INTERNAL_ERROR
+=======================
+PC: 10.40.184.8 PE: auto_AdamHsu_Cluster_OneAP
+subnet_uuid ():
+VM: TEST_1AP_0_0 (uuid=c4b130d0-fa28-4f73-bb19-ce899a9e38f0)
+    2f5ec6d7-636d-4fc2-936e-9dee0eb21862 / 801624fc-dedd-4923-996e-336e3a5ac09a
+========================
+PC: 10.40.184.107 PE: auto_AdamHsu_Cluster_OneAO
+subnet_uuid ():
+VM: ??? (c4b130d0-fa28-4f73-bb19-ce899a9e38f0)
+    562ba05e-5b66-4e00-a2ce-adf359e12b79 / f8ee1887-7c3b-492c-a699-c38089735af4
 
-Replicate twice 0% hang
-========================
-PC: 10.40.217.252 PE: auto_AdamHsu_Cluster_OneAN
-subnet_uuid ():
-VM: TEST_1AN_0_0 (uuid=044d5b71-d643-4a75-91f7-6481f0cf3229)
-    61e431c6-9e94-438d-b591-ac518d2137c2 / ???
-========================
-PC: 10.40.216.172 PE: auto_AdamHsu_Cluster_OneAM
-subnet_uuid ():
-VM: ??? (uuid=044d5b71-d643-4a75-91f7-6481f0cf3229)
-    5934606d-e80f-498f-9ef8-12817330d763 / d028ffe0-8a75-4d03-8929-45227e955ded
+
+
+
+
+
 
 
 ErrorCode:5 With vlog enabled
@@ -313,3 +318,7 @@ VM: TEST_1AF (uuid: 3131310f-7c24-43d3-96c6-a3b3d1a963c3)
 Study restoring in parallel
 ========================
 RESTORED_VM: sample vm_uuid: 79333bf6-1700-51f7-a8f3-6972695b91fc
+
+PC: 10.40.216.172
+TEST_1AM_0_0
+3c7e7d24-01b9-4ee8-8f46-01764f4da3c3 / a7f0962a-a342-4a9a-a39b-3ea72964ad29
