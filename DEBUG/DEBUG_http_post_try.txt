@@ -153,6 +153,18 @@ DATA = {
 }
 DATA = json.dumps(DATA)
 
+# nic_list min requirement for remote restore
+            "nic_list": [
+              {
+                "nic_type": "NORMAL_NIC",
+                #"nic_type": "DIRECT_NIC" # will also work
+                "subnet_reference": {
+                  "kind": "subnet",
+                  "uuid": "2778b2e6-8264-4b6f-b6ac-a4f35b362658"
+                }
+              }
+            ]
+
 #With CATEGORIES_MAPPING and UUID
 # UUID must be created via /idempotence_identifiers. Otherwise, remove UUID.
 URL = 'https://10.40.184.60:9440/api/nutanix/v3/recovery_points/4cef6bd4-3134-4cf7-ba80-8ff1bf12b191/restore'
