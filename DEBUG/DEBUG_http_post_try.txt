@@ -153,17 +153,28 @@ DATA = {
 }
 DATA = json.dumps(DATA)
 
-# nic_list min requirement for remote restore
+# nic_list min requirement for remote restore manually
             "nic_list": [
               {
-                "nic_type": "NORMAL_NIC",
-                #"nic_type": "DIRECT_NIC" # will also work
+                "nic_type": "NORMAL_NIC", #"DIRECT_NIC" will also work
                 "subnet_reference": {
                   "kind": "subnet",
                   "uuid": "2778b2e6-8264-4b6f-b6ac-a4f35b362658"
                 }
               }
             ]
+# nic_list min requirement for remote restore via nutest
+               "nic_list": [
+                  {
+                    "nic_type": "NORMAL_NIC",
+                    "uuid": null,
+                    "subnet_reference": {
+                      "kind": "subnet",
+                      "name": null,
+                      "uuid": null
+                    }
+                  }
+               ]
 
 #With CATEGORIES_MAPPING and UUID
 # UUID must be created via /idempotence_identifiers. Otherwise, remove UUID.

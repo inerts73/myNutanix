@@ -66,18 +66,18 @@ def replicate_from_srouce_to_remote():
 
   return URL, METHOD, DATA
 
-def restore_on_pc_full():
-  URL = 'https://10.40.216.227:9440/api/nutanix/v3/recovery_points/51e56c0f-ee3e-4902-b557-95116b669851/restore'
+def restore_on_pc_full_source():
+  URL = 'https://10.40.184.8:9440/api/nutanix/v3/recovery_points/2f5ec6d7-636d-4fc2-936e-9dee0eb21862/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "90916111-08e9-4fc2-ada8-2ff9845a85dc"
+          "uuid": "801624fc-dedd-4923-996e-336e3a5ac09a"
         },
         "vm_spec": {
-          "name": "RESTORE_1W_FULL",
+          "name": "RESTORE_1AP_FULL_SOURCE",
           "resources": {
             "nic_list": [
               {
@@ -89,11 +89,34 @@ def restore_on_pc_full():
                 "nic_type": "DIRECT_NIC",
                 "subnet_reference": {
                   "kind": "subnet",
-                  "uuid": "58318e27-40cb-453e-8a77-beac024b361f"
+                  "uuid": "604c35e0-7860-46c1-822d-2fa7e0e73dba"
                 },
                 "is_connected": True,
                 "mac_address": "50:6b:8d:79:c1:f9"
-              },
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+  DATA = json.dumps(DATA)
+  return URL, METHOD, DATA
+
+def restore_on_pc_full_remote():
+  URL = 'https://10.40.184.107:9440/api/nutanix/v3/recovery_points/562ba05e-5b66-4e00-a2ce-adf359e12b79/restore'
+  METHOD = 'post'
+  DATA = {
+    "vm_list": [
+      {
+        "vm_recovery_point_reference": {
+          "kind": "vm_recovery_point",
+          "uuid": "f8ee1887-7c3b-492c-a699-c38089735af4"
+        },
+        "vm_spec": {
+          "name": "RESTORE_1AO_FULL",
+          "resources": {
+            "nic_list": [
               {
                 "ip_endpoint_list": [
                   {
@@ -103,30 +126,18 @@ def restore_on_pc_full():
                 "nic_type": "DIRECT_NIC",
                 "subnet_reference": {
                   "kind": "subnet",
-                  "uuid": "58318e27-40cb-453e-8a77-beac024b361f"
+                  "uuid": "2778b2e6-8264-4b6f-b6ac-a4f35b362658"
                 },
                 "is_connected": True,
-                "mac_address": "50:6b:8d:4e:11:95"
+                "mac_address": "50:6b:8d:79:c1:f9"
               }
             ]
           }
         }
-        # "metadata": {
-        #   "categories_mapping": {
-        #     "Environment": [
-        #       "Staging",
-        #       "Testing"
-        #     ],
-        #     "AppTier": [
-        #       "Default"
-        #     ],
-        #   }
-        # }
       }
     ]
   }
   DATA = json.dumps(DATA)
-
   return URL, METHOD, DATA
 
 def restore_on_pc_mini_source():
@@ -140,7 +151,18 @@ def restore_on_pc_mini_source():
           "uuid": "801624fc-dedd-4923-996e-336e3a5ac09a"
         },
         "vm_spec": {
-          "name": "RESTORE_1AP_MINI_SOURCE"
+          "name": "RESTORE_1AP_MINI_SOURCE",
+          "resources": {
+            "nic_list": [
+              {
+                "nic_type": "NORMAL_NIC",
+                "subnet_reference": {
+                  "kind": "subnet",
+                  "uuid": "604c35e0-7860-46c1-822d-2fa7e0e73dba"
+                }
+              }
+            ]
+          }
         },
         "metadata": {
           "categories_mapping": {
@@ -170,7 +192,18 @@ def restore_on_pc_mini_remote():
           "uuid": "f8ee1887-7c3b-492c-a699-c38089735af4"
         },
         "vm_spec": {
-          "name": "RESTORE_1AO_MINI_REMOTE"
+          "name": "RESTORE_1AO_MINI_REMOTE",
+          "resources": {
+            "nic_list": [
+              {
+                "nic_type": "NORMAL_NIC",
+                "subnet_reference": {
+                  "kind": "subnet",
+                  "uuid": "2778b2e6-8264-4b6f-b6ac-a4f35b362658"
+                }
+              }
+            ]
+          }
         }
       }
     ]
@@ -198,7 +231,8 @@ if __name__ == '__main__':
   #output_to_json_file(*az_list())
   #output_to_json_file(*idempotence_identifiers_create())
   #output_to_json_file(*replicate_from_srouce_to_remote())
-  #output_to_json_file(*restore_on_pc_full())
+  #output_to_json_file(*restore_on_pc_full_source())
+  #output_to_json_file(*restore_on_pc_full_remote())
   #output_to_json_file(*restore_on_pc_mini_source())
   output_to_json_file(*restore_on_pc_mini_remote())
   #output_to_json_file(*task_info())
