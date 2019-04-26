@@ -288,60 +288,14 @@ VM: TEST_1AN_0_0 (uuid=044d5b71-d643-4a75-91f7-6481f0cf3229)
     "uuid": "e3c1ebd9-416a-421d-a1b3-372c00b93d47"
   }
 
-Replicate successfully and restore remotely: INTERNAL_ERROR
+ErrorCode5 verification => OK
 =======================
-PC: 10.40.184.8 PE: auto_AdamHsu_Cluster_OneAP
+PC: 10.40.218.70 PE: auto_AdamHsu_Cluster_OneAV
 subnet_uuid ():
-VM: TEST_1AP_0_0 (uuid=c4b130d0-fa28-4f73-bb19-ce899a9e38f0)
-    2f5ec6d7-636d-4fc2-936e-9dee0eb21862 / 801624fc-dedd-4923-996e-336e3a5ac09a
+VM: TEST_1AV_0_0 (uuid=0d17ff88-e2b3-4d68-b828-2fee1f8752a7)
+    455e923a-b73a-4175-85f5-4fe4193e41c6 / 079207e5-0748-46ec-916a-8ffd1e6f694c
 ========================
-PC: 10.40.184.107 PE: auto_AdamHsu_Cluster_OneAO
-subnet_uuid ():
-VM: ??? (c4b130d0-fa28-4f73-bb19-ce899a9e38f0)
-    562ba05e-5b66-4e00-a2ce-adf359e12b79 / f8ee1887-7c3b-492c-a699-c38089735af4
-
-
-
-
-
-
-
-
-ErrorCode:5 With vlog enabled
-========================
-PC: 10.40.217.14 PE: auto_AdamHsu_Cluster_OneAE
-subnet_uuid ():
-VM: TEST_SAIKAT_0_0 (uuid=46c9d4d4-0080-4dc4-babc-a2c20e9d53c4)
-    1ee94f35-c628-4b65-b6a8-6d6a414ce8ac/ ???
-========================
-PC: 10.40.216.245 PE: auto_AdamHsu_Cluster_OneAD
-subnet_uuid ():
-VM: ??? (uuid=46c9d4d4-0080-4dc4-babc-a2c20e9d53c4)
-    03ee16fa-03e6-494a-8419-6f2838889bdd / d2ef99c0-468b-4e8b-b026-c230b0543c8a
-
-ErrorCode:5 without vlog enabled
-========================
-PC: 10.40.217.14 PE: auto_AdamHsu_Cluster_OneAE
-subnet_uuid ():
-VM: TEST_1AE (uuid=47fb1d01-5671-49cc-b175-7b4b50c60125)
-    9639d9d8-8b1d-4b23-b73b-9c6a4198a7a5 / ???
-========================
-PC: 10.40.216.245 PE: auto_AdamHsu_Cluster_OneAD
-subnet_uuid ():
-VM: ??? (uuid: 47fb1d01-5671-49cc-b175-7b4b50c60125)
-    fdb3122b-7034-44d8-8a2e-5aa18e2609ce / b22670ce-68ea-446e-9f52-a0c4b5b2371e
-
-Study TASK
-========================
-PC: 10.40.184.59 PE: auto_AdamHsu_Cluster_OneAF
-subnet_uuid ():
-VM: TEST_1AF (uuid: 3131310f-7c24-43d3-96c6-a3b3d1a963c3)
-    3b510cf5-6ce7-446a-a873-6d1d41bd2837 / e04c81b7-1c82-4962-b690-8e10e2932bca
-
-Study restoring in parallel
-========================
-RESTORED_VM: sample vm_uuid: 79333bf6-1700-51f7-a8f3-6972695b91fc
-
-PC: 10.40.216.172
-TEST_1AM_0_0
-3c7e7d24-01b9-4ee8-8f46-01764f4da3c3 / a7f0962a-a342-4a9a-a39b-3ea72964ad29
+PC: 10.40.218.70 PE: auto_AdamHsu_Cluster_OneAU
+subnet_uuid (vlan0): 9b8551d7-0ea4-485f-86f5-dc7dfdfb2abe
+VM: ??? (uuid=0d17ff88-e2b3-4d68-b828-2fee1f8752a7)
+    e8d81ed5-dabc-41be-bf1b-41b523783253 / b970e40e-1627-491a-a0f0-e3eaff664aa9

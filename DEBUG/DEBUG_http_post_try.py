@@ -182,24 +182,24 @@ def restore_on_pc_mini_source():
   return URL, METHOD, DATA
 
 def restore_on_pc_mini_remote():
-  URL = 'https://10.40.184.107:9440/api/nutanix/v3/recovery_points/562ba05e-5b66-4e00-a2ce-adf359e12b79/restore'
+  URL = 'https://10.40.218.70:9440/api/nutanix/v3/recovery_points/e8d81ed5-dabc-41be-bf1b-41b523783253/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "f8ee1887-7c3b-492c-a699-c38089735af4"
+          "uuid": "b970e40e-1627-491a-a0f0-e3eaff664aa9"
         },
         "vm_spec": {
-          "name": "RESTORE_1AO_MINI_REMOTE",
+          "name": "RESTORE_1AU_MINI_REMOTE",
           "resources": {
             "nic_list": [
               {
                 "nic_type": "NORMAL_NIC",
                 "subnet_reference": {
                   "kind": "subnet",
-                  "uuid": "2778b2e6-8264-4b6f-b6ac-a4f35b362658"
+                  "uuid": "9b8551d7-0ea4-485f-86f5-dc7dfdfb2abe"
                 }
               }
             ]
