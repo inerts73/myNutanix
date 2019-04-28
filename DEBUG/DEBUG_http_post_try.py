@@ -43,23 +43,23 @@ def idempotence_identifiers_create():
   return URL, METHOD, DATA
 
 def replicate_from_srouce_to_remote():
-  URL = 'https://10.40.217.252:9440/api/nutanix/v3/recovery_points/61e431c6-9e94-438d-b591-ac518d2137c2/replicate'
+  URL = 'https://10.40.216.238:9440/api/nutanix/v3/recovery_points/594bef89-6b53-4a65-926e-16fe383e7435/replicate'
   METHOD = 'post'
   DATA = {
     "source_availability_zone_reference": {
       "kind": "availability_zone",
       "name": "Local AZ",
-      "uuid": "e85f4d6b-9776-4fd3-9c65-ba654d73d356"
+      "uuid": "0d76be7f-4d65-43db-a59d-cf5f9f956b77"
     },
     "target_cluster_reference": {
       "kind": "cluster",
-      "name": "auto_AdamHsu_Cluster_OneAM",
-      "uuid": "0e1ed090-72f0-4174-95e3-62ce9d674c2c"
+      "name": "auto_AdamHsu_Cluster_ThreeT",
+      "uuid": "0005877d-59b2-1b2e-05b4-ac1f6b1cbefd"
     },
     "target_availability_zone_reference": {
       "kind": "availability_zone",
-      "name": "PC_10.40.216.172",
-      "uuid": "e3c1ebd9-416a-421d-a1b3-372c00b93d47"
+      "name": "PC_10.40.184.17",
+      "uuid": "044298a9-4e20-4fff-9ef0-5b1cac695252"
     }
   }
   DATA = json.dumps(DATA)
@@ -230,11 +230,11 @@ def vm_info():
 if __name__ == '__main__':
   #output_to_json_file(*az_list())
   #output_to_json_file(*idempotence_identifiers_create())
-  #output_to_json_file(*replicate_from_srouce_to_remote())
+  output_to_json_file(*replicate_from_srouce_to_remote())
   #output_to_json_file(*restore_on_pc_full_source())
   #output_to_json_file(*restore_on_pc_full_remote())
   #output_to_json_file(*restore_on_pc_mini_source())
-  output_to_json_file(*restore_on_pc_mini_remote())
+  #output_to_json_file(*restore_on_pc_mini_remote())
   #output_to_json_file(*task_info())
   #output_to_json_file(*vm_info())
 

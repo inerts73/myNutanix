@@ -264,29 +264,10 @@ DATA = json.dumps(DATA)
 
 
 ########## misc
+valid mac addresses
+========================
 "50:6B:8D:d5:7e:8d"
 "50:6b:8d:be:a9:68"
-========================
-PC: 10.40.217.252 ==> PC: 10.40.216.172
-PE: auto_AdamHsu_Cluster_OneAN => auto_AdamHsu_Cluster_OneAM
-VM: TEST_1AN_0_0 (uuid=044d5b71-d643-4a75-91f7-6481f0cf3229)
-    rp_uuid: ???
-
-  "source_availability_zone_reference": {
-    "kind": "availability_zone",
-    "name": "Local AZ",
-    "uuid": "e85f4d6b-9776-4fd3-9c65-ba654d73d356"
-  },
-  "target_cluster_reference": {
-    "kind": "cluster",
-    "name": "auto_AdamHsu_Cluster_OneAM",
-    "uuid": "0e1ed090-72f0-4174-95e3-62ce9d674c2c"
-  },
-  "target_availability_zone_reference": {
-    "kind": "availability_zone",
-    "name": "PC_10.40.216.172",
-    "uuid": "e3c1ebd9-416a-421d-a1b3-372c00b93d47"
-  }
 
 ErrorCode5 verification on PC/PE=fb46eb42d0a436013afa5568a324f7619e7863d9 => OK
 =======================
@@ -299,3 +280,77 @@ PC: 10.40.218.70 PE: auto_AdamHsu_Cluster_OneAU
 subnet_uuid (vlan0): 9b8551d7-0ea4-485f-86f5-dc7dfdfb2abe
 VM: ??? (uuid=0d17ff88-e2b3-4d68-b828-2fee1f8752a7)
     e8d81ed5-dabc-41be-bf1b-41b523783253 / b970e40e-1627-491a-a0f0-e3eaff664aa9
+
+Replicate manual testings
+========================
+PC: 10.40.216.238 ==> PC: 10.40.184.17
+PE: auto_AdamHsu_Cluster_ThreeU => auto_AdamHsu_Cluster_ThreeT
+VM: TEST_3AU_0_0 (uuid=d06fe923-67be-4139-9099-b44055d6a2b8)
+    rp_uuid_pool: [
+  {
+    "d06fe923-67be-4139-9099-b44055d6a2b8": [
+      "c99bd194-c257-4aea-9134-e4e7bba0a350"
+    ] # Failed to replicate on 04/28/19, 12:16:00 AM
+  },
+  {
+    "d06fe923-67be-4139-9099-b44055d6a2b8": [
+      "594bef89-6b53-4a65-926e-16fe383e7435"
+    ] # Failed to replicate on 04/28/19, 8:21:49 AM
+  },
+  {
+    "d06fe923-67be-4139-9099-b44055d6a2b8": [
+      "bc2eb041-2ed5-41d1-bfbb-be231adc3f55"
+    ]
+  },
+  {
+    "d06fe923-67be-4139-9099-b44055d6a2b8": [
+      "28a77d48-9b88-42d7-ad52-9bde8fc9aae4"
+    ]
+  },
+  {
+    "d06fe923-67be-4139-9099-b44055d6a2b8": [
+      "a5025ef2-3025-4444-9bf4-8088ad2b6681"
+    ]
+  },
+  {
+    "d06fe923-67be-4139-9099-b44055d6a2b8": [
+      "89db36e8-7392-4b2c-afa0-0ed7c60e52ac"
+    ]
+  },
+  {
+    "d06fe923-67be-4139-9099-b44055d6a2b8": [
+      "9f4bc23b-a0db-447e-a796-1d25bcf1a09f"
+    ]
+  },
+  {
+    "d06fe923-67be-4139-9099-b44055d6a2b8": [
+      "bcf70886-6111-42be-9672-747d5ae7a2d6"
+    ]
+  },
+  {
+    "d06fe923-67be-4139-9099-b44055d6a2b8": [
+      "f8617cdb-4d4f-4e53-8d37-2e475b14c2c7"
+    ]
+  },
+  {
+    "d06fe923-67be-4139-9099-b44055d6a2b8": [
+      "62355bb8-2214-46e3-a504-322933dd8f8f"
+    ]
+  }
+]
+
+  "source_availability_zone_reference": {
+    "kind": "availability_zone",
+    "name": "Local AZ",
+    "uuid": "0d76be7f-4d65-43db-a59d-cf5f9f956b77"
+  },
+  "target_cluster_reference": {
+    "kind": "cluster",
+    "name": "auto_AdamHsu_Cluster_ThreeT",
+    "uuid": "0005877d-59b2-1b2e-05b4-ac1f6b1cbefd"
+  },
+  "target_availability_zone_reference": {
+    "kind": "availability_zone",
+    "name": "PC_10.40.184.17",
+    "uuid": "044298a9-4e20-4fff-9ef0-5b1cac695252"
+  }
