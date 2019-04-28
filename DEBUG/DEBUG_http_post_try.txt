@@ -288,7 +288,7 @@ VM: TEST_1AN_0_0 (uuid=044d5b71-d643-4a75-91f7-6481f0cf3229)
     "uuid": "e3c1ebd9-416a-421d-a1b3-372c00b93d47"
   }
 
-ErrorCode5 verification => OK
+ErrorCode5 verification on PC/PE=fb46eb42d0a436013afa5568a324f7619e7863d9 => OK
 =======================
 PC: 10.40.218.70 PE: auto_AdamHsu_Cluster_OneAV
 subnet_uuid ():
