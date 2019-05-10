@@ -176,6 +176,15 @@ DATA = json.dumps(DATA)
                   }
                ]
 
+# gpu_list example
+            "gpu_list": [
+              {
+                "device_id": 12,
+                "mode": "VIRTUAL",
+                "vendor": "NVIDIA"
+              }
+            ]
+
 #With CATEGORIES_MAPPING and UUID
 # UUID must be created via /idempotence_identifiers. Otherwise, remove UUID.
 URL = 'https://10.40.184.60:9440/api/nutanix/v3/recovery_points/4cef6bd4-3134-4cf7-ba80-8ff1bf12b191/restore'
@@ -268,6 +277,41 @@ valid mac addresses
 ========================
 "50:6B:8D:d5:7e:8d"
 "50:6b:8d:be:a9:68"
+
+gpu_list development
+=======================
+Source:
+PC: 10.40.184.215 PE: auto_AdamHsu_Cluster_ThreeX (10.45.138.214)
+subnet_uuid (vlan0): f41f2fe1-a8db-44b7-b31b-461fc0fc6941
+VM: TEST_3X_0_0 (uuid=b0c5d2a0-299e-495d-86ef-780c6add9ec2)
+    601d7210-97a1-4d2c-9b13-632f7e0e75a7 / 485a29ab-3402-4ab2-b344-a88d307e9f34
+
+gpu_list debugging for [Manoj Chaudhary]
+=======================
+Source:
+PC: 10.40.219.26 PE: auto_AdamHsu_Cluster_OneBF (10.45.146.172)
+subnet_uuid (vlan0): 484412ed-a164-4452-910f-4b4fb0547bba
+VM: TEST_1BF_0_0 (uuid=38a4b75c-bb35-491c-8119-59166ad35fd4)
+    49f3e76f-f671-4b6b-9691-0ecb567430a4 / 1512d2c6-d9da-490a-9b8e-8d959ad8d942
+
+
+
+
+
+
+
+auto_nic - try empty_nic_list
+=======================
+Remote:
+Source:
+PC: 10.40.216.100 PE: auto_AdamHsu_Cluster_OneBC
+subnet_uuid (vlan0): dd91fce9-c0d0-4ecb-8774-dcb58526a937
+VM: ??? (uuid=d8593eb3-c097-4fc2-bc4f-28d7f1f922b3)
+    67be39e3-79e2-4a0c-80c8-777568302bda / 0fd98786-ef23-4401-9b22-7e06c890e1a9
+
+
+
+
 
 CannotSendRequest
 =======================

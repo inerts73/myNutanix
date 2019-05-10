@@ -1,3 +1,90 @@
 {
-  "task_uuid": "67ea178e-88a9-4a7b-862c-0f7b03ce68be"
+  "entities": [
+    {
+      "vm_features": {
+        "AGENT_VM": false, 
+        "VGA_CONSOLE": true
+      }, 
+      "vm_gpus": [
+        {
+          "gpu_type": "VIRTUAL", 
+          "gpu_vendor": "NVIDIA", 
+          "device_id": 12
+        }
+      ], 
+      "name": "RESTORE_G_1BF", 
+      "num_cores_per_vcpu": 1, 
+      "gpus_assigned": false, 
+      "num_vcpus": 1, 
+      "memory_mb": 1024, 
+      "power_state": "off", 
+      "ha_priority": 0, 
+      "allow_live_migrate": false, 
+      "timezone": "UTC", 
+      "vm_logical_timestamp": 1, 
+      "uuid": "f874c1cb-f0cb-476b-b140-98a205f2a90d"
+    }, 
+    {
+      "vm_features": {
+        "AGENT_VM": false, 
+        "VGA_CONSOLE": true
+      }, 
+      "uuid": "34844427-a70d-477c-889e-933de36eddd0", 
+      "description": "NutanixPrismCentral", 
+      "num_cores_per_vcpu": 1, 
+      "gpus_assigned": false, 
+      "num_vcpus": 4, 
+      "memory_mb": 16384, 
+      "power_state": "on", 
+      "ha_priority": 0, 
+      "allow_live_migrate": true, 
+      "timezone": "UTC", 
+      "vm_logical_timestamp": 2, 
+      "host_uuid": "cdb4e4f2-6a76-43af-9efa-6181707be170", 
+      "name": "auto_pc_5cd4448782e14f8afacf78940"
+    }, 
+    {
+      "vm_features": {
+        "AGENT_VM": false, 
+        "VGA_CONSOLE": true
+      }, 
+      "uuid": "38a4b75c-bb35-491c-8119-59166ad35fd4", 
+      "description": "My VM", 
+      "num_cores_per_vcpu": 1, 
+      "gpus_assigned": false, 
+      "num_vcpus": 1, 
+      "memory_mb": 1024, 
+      "power_state": "on", 
+      "ha_priority": 0, 
+      "allow_live_migrate": true, 
+      "timezone": "UTC", 
+      "vm_logical_timestamp": 2, 
+      "host_uuid": "cdb4e4f2-6a76-43af-9efa-6181707be170", 
+      "name": "TEST_1BF_0_0"
+    }, 
+    {
+      "vm_features": {
+        "AGENT_VM": false, 
+        "VGA_CONSOLE": true
+      }, 
+      "name": "RESTORE_1BF", 
+      "num_cores_per_vcpu": 1, 
+      "gpus_assigned": false, 
+      "num_vcpus": 1, 
+      "memory_mb": 1024, 
+      "power_state": "off", 
+      "ha_priority": 0, 
+      "allow_live_migrate": true, 
+      "timezone": "UTC", 
+      "vm_logical_timestamp": 1, 
+      "uuid": "b9fa55a0-dc5e-44ff-b2c7-026ff562a2b5"
+    }
+  ], 
+  "metadata": {
+    "count": 4, 
+    "grand_total_entities": 4, 
+    "total_entities": 4, 
+    "start_index": 0, 
+    "end_index": 4
+  }
 }

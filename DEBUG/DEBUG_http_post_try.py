@@ -67,17 +67,17 @@ def replicate_from_srouce_to_remote():
   return URL, METHOD, DATA
 
 def restore_on_pc_full_source():
-  URL = 'https://10.40.184.8:9440/api/nutanix/v3/recovery_points/2f5ec6d7-636d-4fc2-936e-9dee0eb21862/restore'
+  URL = 'https://10.40.184.215:9440/api/nutanix/v3/recovery_points/d8da6d95-4ffd-4aab-a7db-795c65fb82bb/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "801624fc-dedd-4923-996e-336e3a5ac09a"
+          "uuid": "da3bb289-1792-4b30-b976-53409b54784d"
         },
         "vm_spec": {
-          "name": "RESTORE_1AP_FULL_SOURCE",
+          "name": "RESTORE_3X_G_0_0",
           "resources": {
             "nic_list": [
               {
@@ -89,10 +89,17 @@ def restore_on_pc_full_source():
                 "nic_type": "DIRECT_NIC",
                 "subnet_reference": {
                   "kind": "subnet",
-                  "uuid": "604c35e0-7860-46c1-822d-2fa7e0e73dba"
+                  "uuid": "e5fa694f-b1a1-4a9a-ba92-f63f6f8f9b36"
                 },
                 "is_connected": True,
-                "mac_address": "50:6b:8d:79:c1:f9"
+                "mac_address": "50:6b:8d:be:a9:68"
+              }
+            ],
+            "gpu_list": [
+              {
+                "device_id": 12,
+                "mode": "VIRTUAL",
+                "vendor": "INTEL"
               }
             ]
           }
@@ -141,25 +148,32 @@ def restore_on_pc_full_remote():
   return URL, METHOD, DATA
 
 def restore_on_pc_mini_source():
-  URL = 'https://10.40.184.8:9440/api/nutanix/v3/recovery_points/2f5ec6d7-636d-4fc2-936e-9dee0eb21862/restore'
+  URL = 'https://10.40.184.215:9440/api/nutanix/v3/recovery_points/601d7210-97a1-4d2c-9b13-632f7e0e75a7/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "801624fc-dedd-4923-996e-336e3a5ac09a"
+          "uuid": "485a29ab-3402-4ab2-b344-a88d307e9f34"
         },
         "vm_spec": {
-          "name": "RESTORE_1AP_MINI_SOURCE",
+          "name": "RESTORE_G_3X",
           "resources": {
             "nic_list": [
               {
                 "nic_type": "NORMAL_NIC",
                 "subnet_reference": {
                   "kind": "subnet",
-                  "uuid": "604c35e0-7860-46c1-822d-2fa7e0e73dba"
+                  "uuid": "f41f2fe1-a8db-44b7-b31b-461fc0fc6941"
                 }
+              }
+            ],
+            "gpu_list": [
+              {
+                "device_id": 33,
+                "mode": "VIRTUAL",
+                "vendor": "INTEL"
               }
             ]
           }
@@ -182,24 +196,24 @@ def restore_on_pc_mini_source():
   return URL, METHOD, DATA
 
 def restore_on_pc_mini_remote():
-  URL = 'https://10.40.184.19:9440/api/nutanix/v3/recovery_points/aa69282f-0461-4e25-b98c-97135144dc70/restore'
+  URL = 'https://10.40.216.100:9440/api/nutanix/v3/recovery_points/67be39e3-79e2-4a0c-80c8-777568302bda/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "2465b433-b66d-4c5b-8839-dc0cfaf1ba1a"
+          "uuid": "0fd98786-ef23-4401-9b22-7e06c890e1a9"
         },
         "vm_spec": {
-          "name": "RESTORE_1BA_0_0",
+          "name": "RESTORE_1BC_NIC",
           "resources": {
             "nic_list": [
               {
                 "nic_type": "NORMAL_NIC",
                 "subnet_reference": {
                   "kind": "subnet",
-                  "uuid": "2462c304-ebd0-4a38-8ce3-fda12d7ec64b"
+                  "uuid": "dd91fce9-c0d0-4ecb-8774-dcb58526a937"
                 }
               }
             ]
@@ -219,12 +233,24 @@ def task_info():
 
   return URL, METHOD, DATA
 
-def vm_info():
-  URL = 'https://10.40.184.59:9440/api/nutanix/v3/vms/79333bf6-1700-51f7-a8f3-6972695b91fc'
+def vm_info_pc():
+  URL = 'https://10.40.184.215:9440/api/nutanix/v3/vms/b0c5d2a0-299e-495d-86ef-780c6add9ec2'
   METHOD = 'get'
   DATA = {}
   DATA = json.dumps(DATA)
+  return URL, METHOD, DATA
 
+def vm_list_pc():
+  URL = 'https://10.40.184.215:9440/api/nutanix/v3/vms/list'
+  METHOD = 'post'
+  DATA = {}
+  DATA = json.dumps(DATA)
+  return URL, METHOD, DATA
+
+def vm_list_pe():
+  URL = 'https://10.45.146.172:9440/PrismGateway/services/rest/v2.0/vms/'
+  METHOD = 'get'
+  DATA = {}
   return URL, METHOD, DATA
 
 if __name__ == '__main__':
@@ -234,9 +260,11 @@ if __name__ == '__main__':
   #output_to_json_file(*restore_on_pc_full_source())
   #output_to_json_file(*restore_on_pc_full_remote())
   #output_to_json_file(*restore_on_pc_mini_source())
-  output_to_json_file(*restore_on_pc_mini_remote())
+  #output_to_json_file(*restore_on_pc_mini_remote())
   #output_to_json_file(*task_info())
-  #output_to_json_file(*vm_info())
+  #output_to_json_file(*vm_info_pc())
+  #output_to_json_file(*vm_list_pc())
+  output_to_json_file(*vm_list_pe())
 
 
 
