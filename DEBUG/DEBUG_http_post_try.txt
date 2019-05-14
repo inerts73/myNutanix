@@ -279,14 +279,27 @@ valid mac addresses
 "50:6b:8d:be:a9:68"
 
 gpu_list development
+can still be locally restored without nic_list
 =======================
 Source:
-PC: 10.40.184.215 PE: auto_AdamHsu_Cluster_ThreeX (10.45.138.214)
-subnet_uuid (vlan0): f41f2fe1-a8db-44b7-b31b-461fc0fc6941
-VM: TEST_3X_0_0 (uuid=b0c5d2a0-299e-495d-86ef-780c6add9ec2)
-    601d7210-97a1-4d2c-9b13-632f7e0e75a7 / 485a29ab-3402-4ab2-b344-a88d307e9f34
+PC: 10.40.184.225 PE: auto_AdamHsu_Cluster_OneBL (10.45.135.148)
+subnet_uuid (vlan0): 94ef5396-3deb-4898-9ae2-1b6898e7798d
+VM: TEST_1BL_0_0 (uuid=05e2a28d-9517-4350-9a01-2b2ad75f66ff)
+    aeb453ec-7b55-4303-92e7-9fd492e93022 / bce03383-e9b6-405e-97c5-61af98624e63
+=> RESTORE_1BL (vm_uuid: 8a7402cd-7816-44c4-bf75-cafbba666531)
+Source:
+PC: 10.40.184.228 PE: auto_AdamHsu_Cluster_ThreeY (10.45.138.214)
+subnet_uuid (vlan0): ???
+VM: TEST_3Y_0_0 (uuid=???)
+    ??? / ???
+=> RESTORE_3Y (vm_uuid: ???)
 
-gpu_list debugging for [Manoj Chaudhary]
+
+
+
+
+
+gpu_list device_id=-1 for [Manoj Chaudhary]
 =======================
 Source:
 PC: 10.40.219.26 PE: auto_AdamHsu_Cluster_OneBF (10.45.146.172)
@@ -427,20 +440,20 @@ rp_uuid_pool: [
 
 
 
-
+@try deleting scsi.0 on TEST_1BB_0_0 but still got the same behavior
 Wrong disk order on PC/PE=05c6b1392bd0c5b7bce4997144e5f96259d26cd6
 =======================
 Source:
 PC: 10.40.184.24 PE: auto_AdamHsu_Cluster_OneBB
 subnet_uuid ():
 VM: TEST_1BB_0_0 (uuid=dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c)
-    03fe8f6c-caf4-47d0-98bf-fc9795fb999d /
+    980a9565-d7a6-4c92-9355-5ccdbeaf4ae3 /
 ========================
 Remote:
 PC: 10.40.184.19 PE: auto_AdamHsu_Cluster_OneBA
 subnet_uuid (vlan0): 2462c304-ebd0-4a38-8ce3-fda12d7ec64b
 VM: TEST_1BA_0_0 (uuid=)
-    aa69282f-0461-4e25-b98c-97135144dc70 / 2465b433-b66d-4c5b-8839-dc0cfaf1ba1a
+    f8901c37-4e24-4af6-a10e-7cc509069d86 / 411e9352-8855-4d7c-a81f-d2dd5ee8315e
 ========================
 Replicate Body:
 {
@@ -464,52 +477,52 @@ Replicate Body:
 rp_uuid_pool: [
   {
     "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "03fe8f6c-caf4-47d0-98bf-fc9795fb999d" # Replicated successfully on 05/07/19, 1:09:37 PM
+      "980a9565-d7a6-4c92-9355-5ccdbeaf4ae3"
+    ] # successfully replicated on 05/13/19, 2:12:11 PM
+  },
+  {
+    "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
+      "c3c575c7-bb07-4aa9-98bf-24886ffe711c"
     ]
   },
   {
     "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "936ef7b0-bf32-4632-b2c5-1e9ccdaa95c6"
+      "d7866b9e-20bd-42fc-b0e4-ccc254e6f198"
     ]
   },
   {
     "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "30ba6cdb-4af3-4286-b3ba-8b7e560a8aa2"
+      "950f9f41-9048-47d4-956a-f7eb76de9126"
     ]
   },
   {
     "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "69dd309f-1b30-4935-b443-55a348b50835"
+      "0c156e45-03ba-4308-9657-242003c741c9"
     ]
   },
   {
     "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "1c1a6315-b344-409f-8587-73a1ef71b3bc"
+      "65fd3b4b-46ed-49ca-b70c-777845295e52"
     ]
   },
   {
     "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "c66ebce5-cabf-4999-a5a0-80d1ded496e3"
+      "e5334084-1955-4c80-819f-ddcb2ed6fa0a"
     ]
   },
   {
     "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "c7e185cf-1174-4966-b4e8-d1871be03cb3"
+      "9be3118a-69d4-404e-acfb-9eb011393a76"
     ]
   },
   {
     "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "2c26896a-2d21-4f50-9764-d27941cfd4cc"
+      "910f663f-e76d-414c-94ae-62c166bc3193"
     ]
   },
   {
     "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "feb721aa-d10f-4499-b229-bcdd3e1c7951"
-    ]
-  },
-  {
-    "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "461c7d56-3f4b-4b39-a668-e3fedff85596"
+      "e590bf2d-ee99-4c35-91b3-61667fcbd06e"
     ]
   }
 ]

@@ -43,7 +43,7 @@ def idempotence_identifiers_create():
   return URL, METHOD, DATA
 
 def replicate_from_srouce_to_remote():
-  URL = 'https://10.40.184.24:9440/api/nutanix/v3/recovery_points/03fe8f6c-caf4-47d0-98bf-fc9795fb999d/replicate'
+  URL = 'https://10.40.184.24:9440/api/nutanix/v3/recovery_points/980a9565-d7a6-4c92-9355-5ccdbeaf4ae3/replicate'
   METHOD = 'post'
   DATA = {
     "source_availability_zone_reference": {
@@ -111,7 +111,7 @@ def restore_on_pc_full_source():
   return URL, METHOD, DATA
 
 def restore_on_pc_full_remote():
-  URL = 'https://10.40.184.107:9440/api/nutanix/v3/recovery_points/562ba05e-5b66-4e00-a2ce-adf359e12b79/restore'
+  URL = 'https://10.40.184.19:9440/api/nutanix/v3/recovery_points/562ba05e-5b66-4e00-a2ce-adf359e12b79/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
@@ -148,32 +148,32 @@ def restore_on_pc_full_remote():
   return URL, METHOD, DATA
 
 def restore_on_pc_mini_source():
-  URL = 'https://10.40.184.215:9440/api/nutanix/v3/recovery_points/601d7210-97a1-4d2c-9b13-632f7e0e75a7/restore'
+  URL = 'https://10.40.184.225:9440/api/nutanix/v3/recovery_points/aeb453ec-7b55-4303-92e7-9fd492e93022/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "485a29ab-3402-4ab2-b344-a88d307e9f34"
+          "uuid": "bce03383-e9b6-405e-97c5-61af98624e63"
         },
         "vm_spec": {
-          "name": "RESTORE_G_3X",
+          "name": "RESTORE_1BL",
           "resources": {
             "nic_list": [
               {
                 "nic_type": "NORMAL_NIC",
                 "subnet_reference": {
                   "kind": "subnet",
-                  "uuid": "f41f2fe1-a8db-44b7-b31b-461fc0fc6941"
+                  "uuid": "94ef5396-3deb-4898-9ae2-1b6898e7798d"
                 }
               }
             ],
             "gpu_list": [
               {
-                "device_id": 33,
+                "device_id": 12,
                 "mode": "VIRTUAL",
-                "vendor": "INTEL"
+                "vendor": "NVIDIA"
               }
             ]
           }
@@ -196,24 +196,24 @@ def restore_on_pc_mini_source():
   return URL, METHOD, DATA
 
 def restore_on_pc_mini_remote():
-  URL = 'https://10.40.216.100:9440/api/nutanix/v3/recovery_points/67be39e3-79e2-4a0c-80c8-777568302bda/restore'
+  URL = 'https://10.40.184.19:9440/api/nutanix/v3/recovery_points/f8901c37-4e24-4af6-a10e-7cc509069d86/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "0fd98786-ef23-4401-9b22-7e06c890e1a9"
+          "uuid": "411e9352-8855-4d7c-a81f-d2dd5ee8315e"
         },
         "vm_spec": {
-          "name": "RESTORE_1BC_NIC",
+          "name": "RESTORE_1BA_NEW",
           "resources": {
             "nic_list": [
               {
                 "nic_type": "NORMAL_NIC",
                 "subnet_reference": {
                   "kind": "subnet",
-                  "uuid": "dd91fce9-c0d0-4ecb-8774-dcb58526a937"
+                  "uuid": "2462c304-ebd0-4a38-8ce3-fda12d7ec64b"
                 }
               }
             ]
@@ -234,14 +234,14 @@ def task_info():
   return URL, METHOD, DATA
 
 def vm_info_pc():
-  URL = 'https://10.40.184.215:9440/api/nutanix/v3/vms/b0c5d2a0-299e-495d-86ef-780c6add9ec2'
+  URL = 'https://10.40.184.225:9440/api/nutanix/v3/vms/8a7402cd-7816-44c4-bf75-cafbba666531'
   METHOD = 'get'
   DATA = {}
   DATA = json.dumps(DATA)
   return URL, METHOD, DATA
 
 def vm_list_pc():
-  URL = 'https://10.40.184.215:9440/api/nutanix/v3/vms/list'
+  URL = 'https://10.40.184.225:9440/api/nutanix/v3/vms/list'
   METHOD = 'post'
   DATA = {}
   DATA = json.dumps(DATA)
@@ -262,13 +262,12 @@ if __name__ == '__main__':
   #output_to_json_file(*restore_on_pc_mini_source())
   #output_to_json_file(*restore_on_pc_mini_remote())
   #output_to_json_file(*task_info())
-  #output_to_json_file(*vm_info_pc())
+  output_to_json_file(*vm_info_pc())
   #output_to_json_file(*vm_list_pc())
-  output_to_json_file(*vm_list_pe())
+  #output_to_json_file(*vm_list_pe())
 
-
-
-
+  #output_to_json_file(*restore_on_pc_mini_source())
+  #output_to_json_file(*vm_list_pe())
 
 
 
