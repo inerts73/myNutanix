@@ -278,16 +278,32 @@ valid mac addresses
 "50:6B:8D:d5:7e:8d"
 "50:6b:8d:be:a9:68"
 
+ngt_restore_error
+Source:
+PC: 10.40.216.207 PE: auto_AdamHsu_Cluster_OneBN (10.45.146.175)
+subnet_uuid (vlan0):
+VM: TEST_NGT_OFF (uuid=efec3733-b4dc-4e34-8d29-09696c3a478a)
+    cd9263e6-c44a-4f24-a04d-8b4b4e979503 / 4255fed6-70fe-49d5-a3bb-3c4064bbe009
+=> TEST_NGT_OFF (vm_uuid: )
+VM: TEST_NGT_ON (uuid=6bbdd4d7-8dfd-4d58-95cc-109d3ae08207)
+    18b6915e-48e4-427c-9e29-90a0f9935e46 / 102aa536-772d-43dd-a9b1-57eab7d82f5c
+=> TEST_NGT_ON (vm_uuid: )
+
+
+
+
+
+
 gpu_list development
 can still be locally restored without nic_list
 =======================
 Source:
-PC: 10.40.184.225 PE: auto_AdamHsu_Cluster_OneBL (10.45.135.148)
-subnet_uuid (vlan0): 94ef5396-3deb-4898-9ae2-1b6898e7798d
-VM: TEST_1BL_0_0 (uuid=05e2a28d-9517-4350-9a01-2b2ad75f66ff)
-    aeb453ec-7b55-4303-92e7-9fd492e93022 / bce03383-e9b6-405e-97c5-61af98624e63
-=> RESTORE_1BL (vm_uuid: 8a7402cd-7816-44c4-bf75-cafbba666531)
-Source:
+PC: 10.40.184.52 PE: auto_AdamHsu_Cluster_ThreeAB (10.45.138.233)
+subnet_uuid (vlan0): 94788d02-3aea-40ea-a493-4c1a262b73cf
+VM: TEST_3AB_0_0 (uuid=c8235db3-26d1-43d7-b9cf-691a34ff87e8)
+    43994fe1-a82d-44b2-88d8-09ddec9f612c / 3bfb4e78-00a4-49b4-8cc4-cd5b9d1612f9
+=> RESTORE_B (vm_uuid: 97794d77-1efc-4ae0-9231-ae1b9ef95c0a)
+Source: ???
 PC: 10.40.184.228 PE: auto_AdamHsu_Cluster_ThreeY (10.45.138.214)
 subnet_uuid (vlan0): ???
 VM: TEST_3Y_0_0 (uuid=???)
@@ -312,217 +328,3 @@ VM: TEST_1BF_0_0 (uuid=38a4b75c-bb35-491c-8119-59166ad35fd4)
 
 
 
-
-auto_nic - try empty_nic_list
-=======================
-Remote:
-Source:
-PC: 10.40.216.100 PE: auto_AdamHsu_Cluster_OneBC
-subnet_uuid (vlan0): dd91fce9-c0d0-4ecb-8774-dcb58526a937
-VM: ??? (uuid=d8593eb3-c097-4fc2-bc4f-28d7f1f922b3)
-    67be39e3-79e2-4a0c-80c8-777568302bda / 0fd98786-ef23-4401-9b22-7e06c890e1a9
-
-
-
-
-
-CannotSendRequest
-=======================
-Source:
-PC: 10.40.216.194 PE: auto_AdamHsu_Cluster_OneAZ
-subnet_uuid (???):
-VM: TEST_1AZ_0_1 (uuid=086ba0e7-4d89-46ee-b9cc-68854d1d19f1)
-    94b333e7-0b26-4423-8f95-b645dd1c6b5d / ???
-========================
-Remote:
-PC: 10.40.216.177 PE: auto_AdamHsu_Cluster_OneAY
-subnet_uuid (vlan0): cfbae03c-0165-4e1c-9bad-e9c3c6a772ea
-VM: ??? (uuid=)
-     e6a1e7a1-8654-489d-b742-c96c083866bc / 9747b87f-d000-4351-b266-c4a46e843fe5
-
-
-
-
-
-
-3PC3PE replicate error on PC/PE=8006f2cacee80884519f491029e03dbab3328bd6 (upgraded)
-=======================
-Source:
-PC: 10.40.216.105 PE: auto_AdamHsu_Cluster_ThreeW
-subnet_uuid (???):
-VM: TEST_3W_0_0 (uuid=4d3cb1de-cf30-4d58-8d5b-1d2358623264)
-    3977a69d-e23d-4ad6-b055-5012ed39a350 /
-========================
-Remote:
-PC: 10.40.184.215 PE: auto_AdamHsu_Cluster_ThreeX
-subnet_uuid (vlan0): f41f2fe1-a8db-44b7-b31b-461fc0fc6941
-VM: ??? (uuid=)
-     /
-========================
-Replicate Body:
-{
-  "source_availability_zone_reference": {
-    "kind": "availability_zone",
-    "name": "Local AZ",
-    "uuid": "dfe199a8-81a2-4531-b76f-562756a4959a"
-  },
-  "target_cluster_reference": {
-    "kind": "cluster",
-    "name": "auto_AdamHsu_Cluster_ThreeX",
-    "uuid": "000587c3-c694-b7c1-4c85-ac1f6b1cc0a3"
-  },
-  "target_availability_zone_reference": {
-    "kind": "availability_zone",
-    "name": "PC_10.40.184.215",
-    "uuid": "cbadb077-3e9c-4438-be0d-68f33ac9ad46"
-  }
-}
-========================
-rp_uuid_pool: [
-  {
-    "4d3cb1de-cf30-4d58-8d5b-1d2358623264": [
-      "3977a69d-e23d-4ad6-b055-5012ed39a350"
-    ] # Replicate failed on 04/30/19, 11:48:51 PM
-  },
-  {
-    "4d3cb1de-cf30-4d58-8d5b-1d2358623264": [
-      "dcf38e95-ce8e-4c2a-a20f-9712d985a8ee"
-    ]
-  },
-  {
-    "4d3cb1de-cf30-4d58-8d5b-1d2358623264": [
-      "79a6285a-8fc4-47b7-94d5-e3e65a3d3303"
-    ]
-  },
-  {
-    "4d3cb1de-cf30-4d58-8d5b-1d2358623264": [
-      "da923c0e-e6ab-4a0f-a67b-4694a00f77d6"
-    ]
-  },
-  {
-    "4d3cb1de-cf30-4d58-8d5b-1d2358623264": [
-      "d43d6309-b68c-4673-9606-a1ed60fac384"
-    ]
-  },
-  {
-    "4d3cb1de-cf30-4d58-8d5b-1d2358623264": [
-      "6ba2300c-4833-4cca-80ce-db8ac134a78c"
-    ]
-  },
-  {
-    "4d3cb1de-cf30-4d58-8d5b-1d2358623264": [
-      "bf6a7b01-6046-428f-8211-e348d163b6f0"
-    ]
-  },
-  {
-    "4d3cb1de-cf30-4d58-8d5b-1d2358623264": [
-      "73d58b13-9e06-414a-9127-7d516b640c26"
-    ]
-  },
-  {
-    "4d3cb1de-cf30-4d58-8d5b-1d2358623264": [
-      "be9486df-4c19-4f29-a0d3-100a632b6a7c"
-    ]
-  },
-  {
-    "4d3cb1de-cf30-4d58-8d5b-1d2358623264": [
-      "6e292bb2-dae8-4c09-b87d-97a6f93dfaf2"
-    ]
-  }
-]
-
-
-
-
-
-
-
-
-
-
-@try deleting scsi.0 on TEST_1BB_0_0 but still got the same behavior
-Wrong disk order on PC/PE=05c6b1392bd0c5b7bce4997144e5f96259d26cd6
-=======================
-Source:
-PC: 10.40.184.24 PE: auto_AdamHsu_Cluster_OneBB
-subnet_uuid ():
-VM: TEST_1BB_0_0 (uuid=dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c)
-    980a9565-d7a6-4c92-9355-5ccdbeaf4ae3 /
-========================
-Remote:
-PC: 10.40.184.19 PE: auto_AdamHsu_Cluster_OneBA
-subnet_uuid (vlan0): 2462c304-ebd0-4a38-8ce3-fda12d7ec64b
-VM: TEST_1BA_0_0 (uuid=)
-    f8901c37-4e24-4af6-a10e-7cc509069d86 / 411e9352-8855-4d7c-a81f-d2dd5ee8315e
-========================
-Replicate Body:
-{
-  "source_availability_zone_reference": {
-    "kind": "availability_zone",
-    "name": "Local AZ",
-    "uuid": "dfe3016e-2e59-458c-911d-30f50bc5a651"
-  },
-  "target_cluster_reference": {
-    "kind": "cluster",
-    "name": "auto_AdamHsu_Cluster_OneBA",
-    "uuid": "00058845-343a-c751-0000-00000000496e"
-  },
-  "target_availability_zone_reference": {
-    "kind": "availability_zone",
-    "name": "PC_10.40.184.19",
-    "uuid": "e9d8e966-2d04-410d-8f4d-76397322c137"
-  }
-}
-========================
-rp_uuid_pool: [
-  {
-    "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "980a9565-d7a6-4c92-9355-5ccdbeaf4ae3"
-    ] # successfully replicated on 05/13/19, 2:12:11 PM
-  },
-  {
-    "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "c3c575c7-bb07-4aa9-98bf-24886ffe711c"
-    ]
-  },
-  {
-    "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "d7866b9e-20bd-42fc-b0e4-ccc254e6f198"
-    ]
-  },
-  {
-    "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "950f9f41-9048-47d4-956a-f7eb76de9126"
-    ]
-  },
-  {
-    "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "0c156e45-03ba-4308-9657-242003c741c9"
-    ]
-  },
-  {
-    "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "65fd3b4b-46ed-49ca-b70c-777845295e52"
-    ]
-  },
-  {
-    "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "e5334084-1955-4c80-819f-ddcb2ed6fa0a"
-    ]
-  },
-  {
-    "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "9be3118a-69d4-404e-acfb-9eb011393a76"
-    ]
-  },
-  {
-    "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "910f663f-e76d-414c-94ae-62c166bc3193"
-    ]
-  },
-  {
-    "dc0cabbc-de44-456a-b1f6-68b8e6fb7a0c": [
-      "e590bf2d-ee99-4c35-91b3-61667fcbd06e"
-    ]
-  }
-]

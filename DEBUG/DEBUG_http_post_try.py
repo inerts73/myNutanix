@@ -43,23 +43,23 @@ def idempotence_identifiers_create():
   return URL, METHOD, DATA
 
 def replicate_from_srouce_to_remote():
-  URL = 'https://10.40.184.24:9440/api/nutanix/v3/recovery_points/980a9565-d7a6-4c92-9355-5ccdbeaf4ae3/replicate'
+  URL = 'https://10.45.243.253:9440/api/nutanix/v3/recovery_points/58b7e9ab-cea3-4d01-95ed-2a95498592c6/replicate'
   METHOD = 'post'
   DATA = {
     "source_availability_zone_reference": {
       "kind": "availability_zone",
       "name": "Local AZ",
-      "uuid": "dfe3016e-2e59-458c-911d-30f50bc5a651"
+      "uuid": "8ddc9396-efae-4595-98f5-1c98362abfe4"
     },
     "target_cluster_reference": {
       "kind": "cluster",
-      "name": "auto_AdamHsu_Cluster_OneBA",
-      "uuid": "00058845-343a-c751-0000-00000000496e"
+      "name": "auto_cluster_prod_prachi_gupta_1af749dd7b0e",
+      "uuid": "000588c4-1965-6484-0000-000000011637"
     },
     "target_availability_zone_reference": {
       "kind": "availability_zone",
-      "name": "PC_10.40.184.19",
-      "uuid": "e9d8e966-2d04-410d-8f4d-76397322c137"
+      "name": "PC_10.45.200.60",
+      "uuid": "10e10a1b-3dd1-42e3-885a-68e670a3892a"
     }
   }
   DATA = json.dumps(DATA)
@@ -148,46 +148,14 @@ def restore_on_pc_full_remote():
   return URL, METHOD, DATA
 
 def restore_on_pc_mini_source():
-  URL = 'https://10.40.184.225:9440/api/nutanix/v3/recovery_points/aeb453ec-7b55-4303-92e7-9fd492e93022/restore'
+  URL = 'https://10.40.216.207:9440/api/nutanix/v3/recovery_points/18b6915e-48e4-427c-9e29-90a0f9935e46/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "bce03383-e9b6-405e-97c5-61af98624e63"
-        },
-        "vm_spec": {
-          "name": "RESTORE_1BL",
-          "resources": {
-            "nic_list": [
-              {
-                "nic_type": "NORMAL_NIC",
-                "subnet_reference": {
-                  "kind": "subnet",
-                  "uuid": "94ef5396-3deb-4898-9ae2-1b6898e7798d"
-                }
-              }
-            ],
-            "gpu_list": [
-              {
-                "device_id": 12,
-                "mode": "VIRTUAL",
-                "vendor": "NVIDIA"
-              }
-            ]
-          }
-        },
-        "metadata": {
-          "categories_mapping": {
-            "Environment": [
-              "Staging",
-              "Testing"
-            ],
-            "AppTier": [
-              "Default"
-            ]
-          }
+          "uuid": "102aa536-772d-43dd-a9b1-57eab7d82f5c"
         }
       }
     ]
@@ -196,24 +164,24 @@ def restore_on_pc_mini_source():
   return URL, METHOD, DATA
 
 def restore_on_pc_mini_remote():
-  URL = 'https://10.40.184.19:9440/api/nutanix/v3/recovery_points/f8901c37-4e24-4af6-a10e-7cc509069d86/restore'
+  URL = 'https://10.45.200.60:9440/api/nutanix/v3/recovery_points/73037874-94b2-4e5d-925e-75667fdb0bbc/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "411e9352-8855-4d7c-a81f-d2dd5ee8315e"
+          "uuid": "8a0399cb-f8b7-4177-9d63-276a98cdd7f1"
         },
         "vm_spec": {
-          "name": "RESTORE_1BA_NEW",
+          "name": "ADAM_RESTORE",
           "resources": {
             "nic_list": [
               {
                 "nic_type": "NORMAL_NIC",
                 "subnet_reference": {
                   "kind": "subnet",
-                  "uuid": "2462c304-ebd0-4a38-8ce3-fda12d7ec64b"
+                  "uuid": "756c88ad-e0f2-4522-976f-ddbea9fcc33a"
                 }
               }
             ]
@@ -234,7 +202,7 @@ def task_info():
   return URL, METHOD, DATA
 
 def vm_info_pc():
-  URL = 'https://10.40.184.225:9440/api/nutanix/v3/vms/8a7402cd-7816-44c4-bf75-cafbba666531'
+  URL = 'https://10.40.216.207:9440/api/nutanix/v3/vms/6bbdd4d7-8dfd-4d58-95cc-109d3ae08207'
   METHOD = 'get'
   DATA = {}
   DATA = json.dumps(DATA)
@@ -256,18 +224,18 @@ def vm_list_pe():
 if __name__ == '__main__':
   #output_to_json_file(*az_list())
   #output_to_json_file(*idempotence_identifiers_create())
-  #output_to_json_file(*replicate_from_srouce_to_remote())
+  #output_to_json_file(*replicate_from_source_to_remote())
   #output_to_json_file(*restore_on_pc_full_source())
   #output_to_json_file(*restore_on_pc_full_remote())
   #output_to_json_file(*restore_on_pc_mini_source())
   #output_to_json_file(*restore_on_pc_mini_remote())
   #output_to_json_file(*task_info())
-  output_to_json_file(*vm_info_pc())
+  #output_to_json_file(*vm_info_pc())
   #output_to_json_file(*vm_list_pc())
   #output_to_json_file(*vm_list_pe())
 
-  #output_to_json_file(*restore_on_pc_mini_source())
-  #output_to_json_file(*vm_list_pe())
+  output_to_json_file(*restore_on_pc_mini_source())
+  #output_to_json_file(*vm_info_pc())
 
 
 
