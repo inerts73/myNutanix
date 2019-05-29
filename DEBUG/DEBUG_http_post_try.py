@@ -148,14 +148,36 @@ def restore_on_pc_full_remote():
   return URL, METHOD, DATA
 
 def restore_on_pc_mini_source():
-  URL = 'https://10.40.216.207:9440/api/nutanix/v3/recovery_points/18b6915e-48e4-427c-9e29-90a0f9935e46/restore'
+  URL = 'https://10.40.184.14:9440/api/nutanix/v3/recovery_points/bc45677e-2c8a-404e-9521-abdb6c5307db/restore'
   METHOD = 'post'
   DATA = {
     "vm_list": [
       {
         "vm_recovery_point_reference": {
           "kind": "vm_recovery_point",
-          "uuid": "102aa536-772d-43dd-a9b1-57eab7d82f5c"
+          "uuid": "fd77379e-2008-40f5-af59-17fb91ec8366"
+        },
+        "vm_spec": {
+          "name": "RESTORE_4_VIRTUAL_INTEL",
+          "resources": {
+            "nic_list": [
+              {
+                "nic_type": "NORMAL_NIC",
+                "subnet_reference": {
+                  "kind": "subnet",
+                  "name": "vlan0",
+                  "uuid": "77d74880-0a66-4929-a877-52c357780f31"
+                }
+              }
+            ],
+            "gpu_list": [
+              {
+                "device_id": 4,
+                "mode": "VIRTUAL",
+                "vendor": "INTEL"
+              }
+            ]
+          }
         }
       }
     ]
@@ -202,14 +224,14 @@ def task_info():
   return URL, METHOD, DATA
 
 def vm_info_pc():
-  URL = 'https://10.40.216.207:9440/api/nutanix/v3/vms/6bbdd4d7-8dfd-4d58-95cc-109d3ae08207'
+  URL = 'https://10.40.216.141:9440/api/nutanix/v3/vms/7d6e7460-6811-4be6-8362-75c4e0306dfe'
   METHOD = 'get'
   DATA = {}
-  DATA = json.dumps(DATA)
+  #DATA = json.dumps(DATA)
   return URL, METHOD, DATA
 
 def vm_list_pc():
-  URL = 'https://10.40.184.225:9440/api/nutanix/v3/vms/list'
+  URL = 'https://10.40.216.19:9440/api/nutanix/v3/vms/list'
   METHOD = 'post'
   DATA = {}
   DATA = json.dumps(DATA)

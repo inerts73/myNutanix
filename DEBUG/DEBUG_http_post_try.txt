@@ -176,7 +176,14 @@ DATA = json.dumps(DATA)
                   }
                ]
 
-# gpu_list example
+# gpu_list example for Tesla_M60
+           "gpu_list": [
+             {
+               "device_id": 5106,
+               "mode": "PASSTHROUGH_GRAPHICS",
+               "vendor": "NVIDIA"
+             }
+           ],
             "gpu_list": [
               {
                 "device_id": 12,
@@ -184,6 +191,8 @@ DATA = json.dumps(DATA)
                 "vendor": "NVIDIA"
               }
             ]
+
+
 
 #With CATEGORIES_MAPPING and UUID
 # UUID must be created via /idempotence_identifiers. Otherwise, remove UUID.
@@ -278,50 +287,78 @@ valid mac addresses
 "50:6B:8D:d5:7e:8d"
 "50:6b:8d:be:a9:68"
 
-ngt_restore_error
+
+Manan gpu_list test
+========================
 Source:
-PC: 10.40.216.207 PE: auto_AdamHsu_Cluster_OneBN (10.45.146.175)
+PC: 10.40.217.121 PE: auto_AdamHsu_PE_OneCQ (10.45.146.172)
+subnet_uuid (vlan0): a81a6909-2f78-42b9-a900-d81fb8e03f5e
+VM: PolarisWF__0_0 (vm_uuid: 5c6bae93-a884-445d-a3ee-f69abfdd02be)
+f4f5efa4-ebf1-4e02-a552-9a916af79cb9 / cbf759f8-fb80-45a4-a381-882c04dc91e5
+
+
+
+
+
+
+
+3VMs for gpu_list
+========================
+Source:
+PC: 10.40.184.14 PE: auto_AdamHsu_PE_ThreeAL (10.45.138.215)
+subnet_uuid (vlan0): 77d74880-0a66-4929-a877-52c357780f31
+VM: PolarisWF__0_0 (vm_uuid: 4b5bbb9e-e510-4ee2-bb9f-ad0f7d29384b)
+bc45677e-2c8a-404e-9521-abdb6c5307db / fd77379e-2008-40f5-af59-17fb91ec8366
+Remote:
+PC:  PE:  ()
 subnet_uuid (vlan0):
-VM: TEST_NGT_OFF (uuid=efec3733-b4dc-4e34-8d29-09696c3a478a)
-    cd9263e6-c44a-4f24-a04d-8b4b4e979503 / 4255fed6-70fe-49d5-a3bb-3c4064bbe009
-=> TEST_NGT_OFF (vm_uuid: )
-VM: TEST_NGT_ON (uuid=6bbdd4d7-8dfd-4d58-95cc-109d3ae08207)
-    18b6915e-48e4-427c-9e29-90a0f9935e46 / 102aa536-772d-43dd-a9b1-57eab7d82f5c
-=> TEST_NGT_ON (vm_uuid: )
+VM:  (vm_uuid: )
 
 
 
 
-
-
-gpu_list development
-can still be locally restored without nic_list
+disk_list order mismatch
 =======================
 Source:
-PC: 10.40.184.52 PE: auto_AdamHsu_Cluster_ThreeAB (10.45.138.233)
-subnet_uuid (vlan0): 94788d02-3aea-40ea-a493-4c1a262b73cf
-VM: TEST_3AB_0_0 (uuid=c8235db3-26d1-43d7-b9cf-691a34ff87e8)
-    43994fe1-a82d-44b2-88d8-09ddec9f612c / 3bfb4e78-00a4-49b4-8cc4-cd5b9d1612f9
-=> RESTORE_B (vm_uuid: 97794d77-1efc-4ae0-9231-ae1b9ef95c0a)
-Source: ???
-PC: 10.40.184.228 PE: auto_AdamHsu_Cluster_ThreeY (10.45.138.214)
-subnet_uuid (vlan0): ???
-VM: TEST_3Y_0_0 (uuid=???)
-    ??? / ???
-=> RESTORE_3Y (vm_uuid: ???)
+PC: 10.40.216.19 PE: auto_AdamHsu_Cluster_OneBW (10.45.146.137)
+subnet_uuid (vlan0):
+VM: TEST_VM_0_0 (vm_uuid: 8e9b43a7-0b59-4cd1-8d76-c91be5028957)
+Remote:
+PC: 10.40.216.141 PE: auto_AdamHsu_Cluster_OneBV (10.45.146.136)
+subnet_uuid (vlan0):
+VM: RESTORE_VM (vm_uuid: 7d6e7460-6811-4be6-8362-75c4e0306dfe)
 
 
 
 
 
-
-gpu_list device_id=-1 for [Manoj Chaudhary]
+ngt_disk_mount_check
 =======================
 Source:
-PC: 10.40.219.26 PE: auto_AdamHsu_Cluster_OneBF (10.45.146.172)
-subnet_uuid (vlan0): 484412ed-a164-4452-910f-4b4fb0547bba
-VM: TEST_1BF_0_0 (uuid=38a4b75c-bb35-491c-8119-59166ad35fd4)
-    49f3e76f-f671-4b6b-9691-0ecb567430a4 / 1512d2c6-d9da-490a-9b8e-8d959ad8d942
+PC: 10.40.216.147 PE: auto_AdamHsu_Cluster_OneBT (10.45.146.191)
+subnet_uuid (vlan0):
+VM: PolarisWF__0_0 (vm_uuid: 9336e9bc-70c4-43da-8537-fab19ad2ac74)
+     /
+=> NTNX-Restore_VM1 (vm_uuid: 0f58a3ae-42ff-4674-8a4b-50b2ecad3b61)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
